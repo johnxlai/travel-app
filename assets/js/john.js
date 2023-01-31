@@ -1,8 +1,8 @@
-let apiUrl = `https://en.wikipedia.org/w/api.php?action=query&prop=pageimage|imageinfo&format=json&piprop=original&titles=mexico&origin=*`;
+//unsplash api
+// https://unsplash.com/documentation#search-photos
 
-apiUrl = `https://en.wikipedia.org/w/api.php?action=query&prop=pageimages&format=json&list=search&formatversion=2&srsearch=mexico&origin=*`;
+let apiUrl = `https://api.unsplash.com/search/photos?page=1&query=office`;
 
-// apiUrl = `https://v6.exchangerate-api.com/v6/33c366695bf51432d7cae5e1/pair/canada/brazil`;
 fetch(apiUrl).then((response) => {
   if (response.ok) {
     response.json().then(function (data) {

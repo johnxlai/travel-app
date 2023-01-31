@@ -1,0 +1,68 @@
+#wrapper {
+    display: flex;
+    justify-content:center;
+
+}
+
+#history-list {
+    background-color: blueviolet;
+    height: 400px;
+    width: 300px;
+}
+
+#history-list li {
+    margin: 12px 15px 0 15px;
+    height: 25px;
+    list-style-type: none;
+    background-color: orange;
+
+}
+
+main {
+    height: 700px;
+    width: 500px;
+}
+
+#input-name {
+    height: 50px;
+    background-color: green;
+    text-align: center;
+}
+
+#text-name {
+    margin-top: 5px;
+    height: 30px;
+}
+#btn {
+    height: 35px;
+    width: 65px;
+}
+
+
+#wiki-disc {
+    min-height: 300px;
+    width: 100%;
+    background-color: gray;
+}
+
+#currency {
+    height: 50px;
+    background-color: green;
+}
+
+#wiki-map {
+    height: 400px;
+    width: 100%;
+    background-color: gray;
+}
+
+#wiki-img {
+    background-color: blueviolet;
+    height: 700px;
+    width: 300px;
+}
+
+#wiki-img img {
+    width: 93%;
+    margin: 10px 0 0 10px;
+}

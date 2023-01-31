@@ -10,6 +10,13 @@
 
 //the local storage var will be used for the fetch search for wiki api
 
-// create fetch function for grab data
+// create fetch function for grabing data from wiki
 
-//
+// create fetch function for grabing money exchange
+
+// what we need to display with the data
+//show images
+
+// show map
+
+//show bio of country

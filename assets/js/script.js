@@ -2,11 +2,12 @@
 const userInputForm = document.getElementById('user-input-form');
 let fromCountryEl = document.getElementById('from-country');
 const descriptionEl = document.getElementById('wiki-disc');
+const flagElem = document.getElementById('flag');
 
 // // listenser on form input (country they're interested about)
 
 // // Fetch country description using WIKI API
-function addDescription(fromCountryName) {
+function fetchDescription(fromCountryName) {
   if (fromCountryName) {
     // add description
     const apiUrl = `https://en.wikipedia.org/w/api.php?format=json&action=query&origin=*&prop=extracts&exintro&redirects=1&titles=${fromCountryName}`;
@@ -20,56 +21,42 @@ function addDescription(fromCountryName) {
   }
 }
 
-function displayDescription(data) {
-  let pageid = Object.keys(data)[0];
-  let extract = data[pageid].extract;
+// Fetch country flag
+function fetchFlag(fromCountryName) {
+  // flag
+  const apiUrl2 = `https://en.wikipedia.org/w/api.php?action=query&prop=pageimages&format=json&piprop=original&titles=${fromCountryName}&origin=*`;
+
+  fetch(apiUrl2)
+    .then((response) => response.json())
+    .then((data) => {
+      data = data.query.pages;
+      displayFlag(data);
+    });
+}
+
+function displayDescription(country) {
+  let pageid = Object.keys(country)[0];
+  let extract = country[pageid].extract;
 
   descriptionEl.innerHTML = `<p>${extract}</p>`;
 }
 
-// // Fetch country flag
-// function addDescription(atr) {
-//   if (atr) {
-//     // add description
-//     const url = `https://en.wikipedia.org/w/api.php?format=json&action=query&origin=*&prop=extracts&exintro&redirects=1&titles=${atr}`;
+function displayFlag(country) {
+  let pageid = Object.keys(country)[0];
+  console.log(country);
 
-//     fetch(url)
-//       .then((response) => response.json())
-//       .then((response) => {
-//         response = response.query.pages;
-//         let pageid = Object.keys(response)[0];
-//         let extract = response[pageid].extract;
-
-//         let desc = document.getElementById('wiki-disc');
-//         desc.innerHTML = `<p>${extract}</p>`;
-//       });
-
-//     // flag
-//     const url2 = `https://en.wikipedia.org/w/api.php?action=query&prop=pageimages&format=json&piprop=original&titles=${atr}&origin=*`;
-
-//     fetch(url2)
-//       .then((response) => response.json())
-//       .then((response) => {
-//         console.log(response);
-//         response = response.query.pages;
-//         let pageid = Object.keys(response)[0];
-//         let flagElem = document.getElementById('flag');
-
-//         if (response[pageid].original) {
-//           let source = response[pageid].original.source;
-//           flagElem.setAttribute('src', source);
-//         } else {
-//           flagElem.setAttribute('src', '');
-//         }
-//       });
-//   }
-// }
+  if (country[pageid].original) {
+    let source = country[pageid].original.source;
+    flagElem.setAttribute('src', source);
+  }
+}
 
 //Event for form submission
 userInputForm.addEventListener('submit', (e) => {
   e.preventDefault();
   let userInputCountry = fromCountryEl.value;
-  addDescription(userInputCountry);
+  fetchDescription(userInputCountry);
+  fetchFlag(userInputCountry);
 });
 
 // // add to local storage

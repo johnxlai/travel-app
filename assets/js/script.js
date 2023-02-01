@@ -1,5 +1,5 @@
 // // selectors
-// let btn = document.getElementById('btn');
+let btn = document.getElementById('btn');
 
 // // listenser on form input (country they're interested about)
 

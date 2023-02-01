@@ -1,6 +1,6 @@
 // // selectors
 const userInputForm = document.getElementById('user-input-form');
-let fromCountryEl = document.getElementById('from-country').value;
+let fromCountryEl = document.getElementById('from-country');
 
 // // listenser on form input (country they're interested about)
 
@@ -45,8 +45,8 @@ function addDescription(atr) {
 // // Event Listener button
 userInputForm.addEventListener('submit', (e) => {
   e.preventDefault();
-  console.log(fromCountryEl);
-  addDescription(fromCountryEl);
+  let userInputCountry = fromCountryEl.value;
+  addDescription(userInputCountry);
 });
 
 // //input country they're from

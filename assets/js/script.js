@@ -1,6 +1,6 @@
 // // selectors
 const userInputForm = document.getElementById('user-input-form');
-const fromCountryEl = document.getElementById('from-country');
+const fromCountry = document.getElementById('from-country');
 const goingToCountry = document.getElementById('going-to-country');
 const descriptionEl = document.getElementById('wiki-disc');
 const flagElem = document.getElementById('flag');
@@ -74,7 +74,6 @@ function displayImages(images) {
   unsplashSection.empty();
 
   $.each(images.results, function (key, value) {
-    console.log(value.urls.small);
     unsplashSection.append(
       `<img src="${value.urls.small}" alt="${value.alt_description}">
       <p>Photo by ${value.user.name} on <a href="https://unsplash.com" target="_blank">Unsplash</a></p>
@@ -88,10 +87,12 @@ function displayImages(images) {
 //Event for form submission
 userInputForm.addEventListener('submit', (e) => {
   e.preventDefault();
-  let userInputCountry = fromCountryEl.value;
-  fetchDescription(userInputCountry);
-  fetchFlag(userInputCountry);
-  fetchUnsplash(userInputCountry);
+  let fromWhere = fromCountry.value;
+  let toWhere = goingToCountry.value;
+  fetchDescription(fromWhere);
+  fetchFlag(fromWhere);
+  fetchUnsplash(fromWhere);
+  convertCountryToCurrency(fromWhere, toWhere);
 });
 
 // // add to local storage
@@ -124,7 +125,8 @@ function grabCurrency(from$$$, to$$$) {
   });
 }
 
-function displayExchange() {
+function displayExchange(data) {
+  console.log(data);
   console.log('display exchange rate here');
   // console.log(money.conversion_rate + currency_two);
 }

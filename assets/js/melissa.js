@@ -1,9 +1,157 @@
 const myApiKey = '8e233f62d86910e2c75ea2bb';
-let userInputOne = 'Canada';
+let userInputOne = 'Burkina Faso';
 let userInputTwo = 'Estonia';
 
-//Country List
 
+// user input one corrections
+if (userInputOne == 'Antigua and Barbuda') {
+    userInputOne = 'antiguaAndBarbuda';};
+if (userInputOne == 'Bosnia and Herzegovina') {
+    userInputOne = 'bosniaAndHerzegovina';};
+if (userInputOne == 'Burkina Faso') {
+    userInputOne = 'burkinaFaso';};
+if (userInputOne == 'Cape Verde') {
+    userInputOne = 'capeVerde';};
+if (userInputOne == 'Central African Republic') {
+    userInputOne = 'centralAfricanRepublic';};
+if (userInputOne == 'Costa Rica') {
+    userInputOne = 'costaRica';};
+if (userInputOne == 'Czech Republic') {
+    userInputOne = 'czechRepublic';};
+if (userInputOne == 'Dominican Republic') {
+    userInputOne = 'dominicanRepublic';};
+if (userInputOne == 'Equatorial Guinea') {
+    userInputOne = 'equatorialGuinea';};
+if (userInputOne == 'Guinea-Bissau') {
+    userInputOne = 'guineaBissau';}
+if (userInputOne == 'Hong Kong') {
+    userInputOne = 'hongKong';};
+if (userInputOne == 'Ivory Coast') {
+    userInputOne = 'ivoryCoast';};
+if (userInputOne == 'Vatican City') {
+    userInputOne = 'vaticanCity';};
+if (userInputOne == 'United States') {
+    userInputOne = 'unitedStates';};
+if (userInputOne == 'United States of America') {
+    userInputOne = 'unitedStates';};
+if (userInputOne == 'United Kingdom') {
+    userInputOne = 'unitedKingdom';};
+if (userInputOne == 'United Arab Emirates') {
+    userInputOne = 'unitedArabEmirates';};
+if (userInputOne == 'South Korea') {
+    userInputOne = 'southKorea';};
+if (userInputOne == 'Marshall Islands') {
+    userInputOne = 'marshallIslands';};
+if (userInputOne == 'New Zealand') {
+    userInputOne = 'newZealand';};
+if (userInputOne == 'North Macedonia') {
+    userInputOne = 'northMacedonia';};
+if (userInputOne == 'Saint Kitts and Nevis') {
+    userInputOne = 'saintKittsAndNevis';};
+if (userInputOne == 'Saint Lucia') {
+    userInputOne = 'saintLucia';};
+if (userInputOne == 'Saint Vincent and the Grenadines') {
+    userInputOne = 'saintVincentAndTheGrenadines';};
+if (userInputOne == 'Sao Tome and Principe') {
+    userInputOne = 'saoTomeAndPrincipe';};
+if (userInputOne == 'Papua New Guinea') {
+    userInputOne = 'papuaNewGuinea';};
+if (userInputOne == 'Sierra Leone') {
+    userInputOne = 'sierraLeone';};
+if (userInputOne == 'Solomon Islands') {
+    userInputOne = 'solomonIslands';};
+if (userInputOne == 'Sri Lanka') {
+    userInputOne = 'sriLanka';};
+if (userInputOne == 'South Africa') {
+    userInputOne = 'southAfrica';}
+if (userInputOne == 'San Marino') {
+    userInputOne = 'sanMarino';};
+if (userInputOne == 'Saudi Arabia') {
+    userInputOne = 'saudiArabia';};
+if (userInputOne == 'Trinidad and Tobago') {
+    userInputOne = 'trinidadAndTobago';};
+if (userInputOne == 'Western Sahara') {
+    userInputOne = 'westernSahara';};
+if (userInputOne == 'United Kingdom') {
+    userInputOne = 'unitedKingdom';};
+if (userInputOne == 'British Virgin Islands') {
+    userInputOne = 'britishVirginIslands';};
+    
+//user input 2 corrections
+if (userInputTwo == 'Antigua and Barbuda') {
+    userInputTwo = 'antiguaAndBarbuda';};
+if (userInputTwo == 'Bosnia and Herzegovina') {
+    userInputTwo = 'bosniaAndHerzegovina';};
+if (userInputTwo == 'Burkina Faso') {
+    userInputTwo = 'burkinaFaso';};
+if (userInputTwo == 'Cape Verde') {
+    userInputTwo = 'capeVerde';};
+if (userInputTwo == 'Central African Republic') {
+    userInputTwo = 'centralAfricanRepublic';};
+if (userInputTwo == 'Costa Rica') {
+    userInputTwo = 'costaRica';};
+if (userInputTwo == 'Czech Republic') {
+    userInputTwo = 'czechRepublic';};
+if (userInputTwo == 'Dominican Republic') {
+    userInputTwo = 'dominicanRepublic';};
+if (userInputTwo == 'Equatorial Guinea') {
+    userInputTwo = 'equatorialGuinea';};
+if (userInputTwo == 'Guinea-Bissau') {
+    userInputTwo = 'guineaBissau';}
+if (userInputTwo == 'Hong Kong') {
+    userInputTwo = 'hongKong';};
+if (userInputTwo == 'Ivory Coast') {
+    userInputTwo = 'ivoryCoast';};
+if (userInputTwo == 'Vatican City') {
+    userInputTwo = 'vaticanCity';};
+if (userInputTwo == 'United States') {
+    userInputTwo = 'unitedStates';};
+if (userInputTwo == 'United States of America') {
+    userInputTwo = 'unitedStates';};
+if (userInputTwo == 'United Kingdom') {
+    userInputTwo = 'unitedKingdom';};
+if (userInputTwo == 'United Arab Emirates') {
+    userInputTwo = 'unitedArabEmirates';};
+if (userInputTwo == 'South Korea') {
+    userInputTwo = 'southKorea';};
+if (userInputTwo == 'Marshall Islands') {
+    userInputTwo = 'marshallIslands';};
+if (userInputTwo == 'New Zealand') {
+    userInputTwo = 'newZealand';};
+if (userInputTwo == 'North Macedonia') {
+    userInputTwo = 'northMacedonia';};
+if (userInputTwo == 'Saint Kitts and Nevis') {
+    userInputTwo = 'saintKittsAndNevis';};
+if (userInputTwo == 'Saint Lucia') {
+    userInputTwo = 'saintLucia';};
+if (userInputTwo == 'Saint Vincent and the Grenadines') {
+    userInputTwo = 'saintVincentAndTheGrenadines';};
+if (userInputTwo == 'Sao Tome and Principe') {
+    userInputTwo = 'saoTomeAndPrincipe';};
+if (userInputTwo == 'Papua New Guinea') {
+    userInputTwo = 'papuaNewGuinea';};
+if (userInputTwo == 'Sierra LeTwo') {
+    userInputTwo = 'sierraLeTwo';};
+if (userInputTwo == 'Solomon Islands') {
+    userInputTwo = 'solomonIslands';};
+if (userInputTwo == 'Sri Lanka') {
+    userInputTwo = 'sriLanka';};
+if (userInputTwo == 'South Africa') {
+    userInputTwo = 'southAfrica';}
+if (userInputTwo == 'San Marino') {
+    userInputTwo = 'sanMarino';};
+if (userInputTwo == 'Saudi Arabia') {
+    userInputTwo = 'saudiArabia';};
+if (userInputTwo == 'Trinidad and Tobago') {
+    userInputTwo = 'trinidadAndTobago';};
+if (userInputTwo == 'Western Sahara') {
+    userInputTwo = 'westernSahara';};
+if (userInputTwo == 'United Kingdom') {
+    userInputTwo = 'unitedKingdom';};
+if (userInputTwo == 'British Virgin Islands') {
+    userInputTwo = 'britishVirginIslands';};
+
+ //Country List
 let countryList = [
     { Afghanistan: 'AFN' },
     { Albania: 'ALL' },
@@ -153,6 +301,9 @@ let countryList = [
     { Romania: 'RON' },
     { Russia: 'RUB' },
     { Rwanda: 'RWF' },
+    { saintKittsAndNevis: 'XCD' },
+    { saintLucia: 'XCD' },
+    { saintVincentAndTheGrenadines: 'XCD' },
     { Samoa: 'WST' },
     { sanMarino: 'EUR' },
     { saoTomePrincipe: 'STD' },
@@ -181,12 +332,12 @@ let countryList = [
     { Togo: 'XOF' },
     { Tokelau: 'NZD' },
     { Tonga: 'TOP' },
-    { trinidadTobago: 'TTD' },
+    { trinidadAndTobago: 'TTD' },
     { Tunisia: 'TND' },
     { Turkey: 'TRY' },
     { Turkmenistan: 'TMT' },
     { Tuvalu: 'AUD' },
-    { USA: 'USD' },
+    { unitedStates: 'USD' },
     { Uganda: 'UGX' },
     { Ukraine: 'UAH' },
     { unitedArabEmirates: 'AED' },
@@ -196,7 +347,7 @@ let countryList = [
     { Vanuatu: 'VUV' },
     { Venezuela: 'VEF' },
     { Vietnam: 'VND' },
-    { virginIslands: 'USD' },
+    { britishVirginIslands: 'GBP' },
     { westernSahara: 'MAD' },
     { Yemen: 'YER' },
     { Zambia: 'ZMW' },

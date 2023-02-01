@@ -1,7 +1,7 @@
 // // selectors
 const userInputForm = document.getElementById('user-input-form');
-const fromCountry = document.getElementById('from-country');
-const goingToCountry = document.getElementById('going-to-country');
+const fromCountry = $('#from-country');
+const goingToCountry = $('#going-to-country');
 const descriptionEl = document.getElementById('wiki-disc');
 const flagElem = document.getElementById('flag');
 
@@ -87,12 +87,18 @@ function displayImages(images) {
 //Event for form submission
 userInputForm.addEventListener('submit', (e) => {
   e.preventDefault();
-  let fromWhere = fromCountry.value;
-  let toWhere = goingToCountry.value;
+  console.log(fromCountry, goingToCountry);
+  let fromWhere = fromCountry.find(':selected').text();
+  let toWhere = goingToCountry.find(':selected').text();
+  let fromWhereCurrency = fromCountry.find(':selected').val();
+  let toWhereCurrency = goingToCountry.find(':selected').val();
+
+  console.log(fromWhere, toWhere);
+
   fetchDescription(fromWhere);
   fetchFlag(fromWhere);
   fetchUnsplash(fromWhere);
-  convertCountryToCurrency(fromWhere, toWhere);
+  convertCountryToCurrency(fromWhereCurrency, toWhereCurrency);
 });
 
 // // add to local storage

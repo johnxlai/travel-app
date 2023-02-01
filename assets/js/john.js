@@ -20,12 +20,15 @@ fetch(apiUrl).then((response) => {
 
 function displayImages(images) {
   console.log(images.results);
-  let photoDetails = images.results[0];
-  $('#wiki-img').append(
-    `<img src="${photoDetails.urls.small}" alt="${photoDetails.alt_description}">
-    <p>Photo by ${photoDetails.user.name} on <a href="https://unsplash.com" target="_blank">Unsplash</a></p>
-    <p>${photoDetails.description}</p>
-    <a href="${photoDetails.links.download}&force=true" target="_blank"  download="">Download</a>
-    `
-  );
+
+  $.each(images.results, function (key, value) {
+    console.log(value.urls.small);
+    $('#wiki-img').append(
+      `<img src="${value.urls.small}" alt="${value.alt_description}">
+      <p>Photo by ${value.user.name} on <a href="https://unsplash.com" target="_blank">Unsplash</a></p>
+      <p>${value.description}</p>
+      <a href="${value.links.download}&force=true" target="_blank"  download="">Download</a>
+      `
+    );
+  });
 }

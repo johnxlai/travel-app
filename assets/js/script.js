@@ -88,16 +88,16 @@ function displayImages(images) {
 userInputForm.addEventListener('submit', (e) => {
   e.preventDefault();
   console.log(fromCountry, goingToCountry);
-  let fromWhere = fromCountry.find(':selected').text();
   let toWhere = goingToCountry.find(':selected').text();
-  let fromWhereCurrency = fromCountry.find(':selected').val();
   let toWhereCurrency = goingToCountry.find(':selected').val();
+  let fromWhere = fromCountry.find(':selected').text();
+  let fromWhereCurrency = fromCountry.find(':selected').val();
 
   console.log(fromWhere, toWhere);
 
-  fetchDescription(fromWhere);
-  fetchFlag(fromWhere);
-  fetchUnsplash(fromWhere);
+  fetchDescription(toWhere);
+  fetchFlag(toWhere);
+  fetchUnsplash(toWhere);
   convertCountryToCurrency(fromWhereCurrency, toWhereCurrency);
 });
 

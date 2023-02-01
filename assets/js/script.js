@@ -81,6 +81,10 @@ function fetchCurrency(homeCurrency, vacatCurrency) {
   });
 }
 
+//fetch map api
+function fetchMap() {}
+
+//DISPLAY FUNCTION
 function displayDescription(country) {
   let pageid = Object.keys(country)[0];
   let extract = country[pageid].extract;
@@ -113,6 +117,9 @@ function displayImages(images) {
   });
 }
 
+// Display map
+function displayMap() {}
+
 // display exchange rate
 function displayExchange(data) {
   console.log(data);
@@ -134,6 +141,7 @@ userInputForm.addEventListener('submit', (e) => {
   let fromWhere = fromCountry.find(':selected').text();
   let fromWhereCurrency = fromCountry.find(':selected').val();
 
+  //Fetch from API
   fetchDescription(toWhere);
   fetchFlag(toWhere);
   fetchUnsplash(toWhere);
@@ -145,7 +153,3 @@ userInputForm.addEventListener('submit', (e) => {
 // //local storage will be used for history
 
 // //the local storage var will be used for the fetch search for wiki api
-
-// // create fetch function for grabing money exchange
-
-// // show map

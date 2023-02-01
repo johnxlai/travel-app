@@ -93,12 +93,10 @@ userInputForm.addEventListener('submit', (e) => {
   let fromWhere = fromCountry.find(':selected').text();
   let fromWhereCurrency = fromCountry.find(':selected').val();
 
-  console.log(fromWhere, toWhere);
-
   fetchDescription(toWhere);
   fetchFlag(toWhere);
   fetchUnsplash(toWhere);
-  convertCountryToCurrency(fromWhereCurrency, toWhereCurrency);
+  fetchCurrency(fromWhereCurrency, toWhereCurrency);
 });
 
 // // add to local storage
@@ -111,14 +109,10 @@ userInputForm.addEventListener('submit', (e) => {
 
 // // show map
 
-function convertCountryToCurrency(fromCountry, goingToCountry) {
-  grabCurrency(fromCountry, goingToCountry);
-}
-
 //fetch currency api
-function grabCurrency(from$$$, to$$$) {
+function fetchCurrency(homeCurrency, vacatCurrency) {
   const currencyApiKey = '8e233f62d86910e2c75ea2bb';
-  currencyApiUrl = `https://v6.exchangerate-api.com/v6/${currencyApiKey}/pair/${from$$$}/${to$$$}`;
+  currencyApiUrl = `https://v6.exchangerate-api.com/v6/${currencyApiKey}/pair/${homeCurrency}/${vacatCurrency}`;
   fetch(currencyApiUrl).then((response) => {
     //console.log(response);
     if (response.ok) {

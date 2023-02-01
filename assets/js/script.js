@@ -1,10 +1,11 @@
 // // selectors
 const userInputForm = document.getElementById('user-input-form');
 let fromCountryEl = document.getElementById('from-country');
+const descriptionEl = document.getElementById('wiki-disc');
 
 // // listenser on form input (country they're interested about)
 
-// // Fetch country description
+// // Fetch country description using WIKI API
 function addDescription(fromCountryName) {
   if (fromCountryName) {
     // add description
@@ -14,13 +15,16 @@ function addDescription(fromCountryName) {
       .then((response) => response.json())
       .then((data) => {
         data = data.query.pages;
-        let pageid = Object.keys(data)[0];
-        let extract = data[pageid].extract;
-
-        let desc = document.getElementById('wiki-disc');
-        desc.innerHTML = `<p>${extract}</p>`;
+        displayDescription(data);
       });
   }
+}
+
+function displayDescription(data) {
+  let pageid = Object.keys(data)[0];
+  let extract = data[pageid].extract;
+
+  descriptionEl.innerHTML = `<p>${extract}</p>`;
 }
 
 // // Fetch country flag

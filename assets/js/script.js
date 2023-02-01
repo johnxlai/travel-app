@@ -3,7 +3,6 @@ const userInputForm = document.getElementById('user-input-form');
 let fromCountryEl = document.getElementById('from-country');
 const descriptionEl = document.getElementById('wiki-disc');
 const flagElem = document.getElementById('flag');
-const unsplashApiKey = `dLu5Px-IAAbB5LQ4bnPDg8BwZSRXdqoMLaZdTj_vEqk`;
 
 // // listenser on form input (country they're interested about)
 
@@ -24,7 +23,6 @@ function fetchDescription(fromCountryName) {
 
 // Fetch country flag
 function fetchFlag(fromCountryName) {
-  // flag
   const apiUrl = `https://en.wikipedia.org/w/api.php?action=query&prop=pageimages&format=json&piprop=original&titles=${fromCountryName}&origin=*`;
 
   fetch(apiUrl)
@@ -37,10 +35,11 @@ function fetchFlag(fromCountryName) {
 
 //Fetch unsplash data
 function fetchUnsplash(fromCountryName) {
-  let apiUrl = `https://api.unsplash.com/search/photos?page1&query=${country}&${unsplashApiKey}/
-`;
+  const unsplashApiKey = `dLu5Px-IAAbB5LQ4bnPDg8BwZSRXdqoMLaZdTj_vEqk&`;
 
-  fetch(apiUrl).then((response) => {
+  let apiUrl = `https://api.unsplash.com/search/photos?page1&query=${fromCountryName}&client_id=${unsplashApiKey}/`;
+
+  https: fetch(apiUrl).then((response) => {
     if (response.ok) {
       response.json().then(function (data) {
         // console.log(data);
@@ -61,7 +60,6 @@ function displayDescription(country) {
 
 function displayFlag(country) {
   let pageid = Object.keys(country)[0];
-  console.log(country);
 
   if (country[pageid].original) {
     let source = country[pageid].original.source;
@@ -70,13 +68,12 @@ function displayFlag(country) {
 }
 
 // //unsplash api
-
 function displayImages(images) {
   console.log(images.results);
 
   $.each(images.results, function (key, value) {
     console.log(value.urls.small);
-    $('#wiki-img').append(
+    $('.unsplash-imgs').append(
       `<img src="${value.urls.small}" alt="${value.alt_description}">
       <p>Photo by ${value.user.name} on <a href="https://unsplash.com" target="_blank">Unsplash</a></p>
       <p>${value.description}</p>
@@ -101,13 +98,6 @@ userInputForm.addEventListener('submit', (e) => {
 
 // //the local storage var will be used for the fetch search for wiki api
 
-// // create fetch function for grabing data from wiki
-
 // // create fetch function for grabing money exchange
 
-// // what we need to display with the data
-// //show images
-
 // // show map
-
-// //show bio of country

@@ -106,7 +106,7 @@ userInputForm.addEventListener('submit', (e) => {
 // // show map
 
 function convertCountryToCurrency(fromCountry, goingToCountry) {
-  grabCurrency(fromMoney, toMoney);
+  grabCurrency(fromCountry, goingToCountry);
 }
 
 //fetch currency api
@@ -128,5 +128,4 @@ function grabCurrency(from$$$, to$$$) {
 function displayExchange(data) {
   console.log(data);
   console.log('display exchange rate here');
-  // console.log(money.conversion_rate + currency_two);
 }

@@ -4,54 +4,69 @@ let fromCountryEl = document.getElementById('from-country');
 
 // // listenser on form input (country they're interested about)
 
-// // description and flag
-function addDescription(atr) {
-  if (atr) {
+// // Fetch country description
+function addDescription(fromCountryName) {
+  if (fromCountryName) {
     // add description
-    const url = `https://en.wikipedia.org/w/api.php?format=json&action=query&origin=*&prop=extracts&exintro&redirects=1&titles=${atr}`;
+    const apiUrl = `https://en.wikipedia.org/w/api.php?format=json&action=query&origin=*&prop=extracts&exintro&redirects=1&titles=${fromCountryName}`;
 
-    fetch(url)
+    fetch(apiUrl)
       .then((response) => response.json())
-      .then((response) => {
-        response = response.query.pages;
-        let pageid = Object.keys(response)[0];
-        let extract = response[pageid].extract;
+      .then((data) => {
+        data = data.query.pages;
+        let pageid = Object.keys(data)[0];
+        let extract = data[pageid].extract;
 
         let desc = document.getElementById('wiki-disc');
         desc.innerHTML = `<p>${extract}</p>`;
       });
-
-    // flag
-    const url2 = `https://en.wikipedia.org/w/api.php?action=query&prop=pageimages&format=json&piprop=original&titles=${atr}&origin=*`;
-
-    fetch(url2)
-      .then((response) => response.json())
-      .then((response) => {
-        console.log(response);
-        response = response.query.pages;
-        let pageid = Object.keys(response)[0];
-        let flagElem = document.getElementById('flag');
-
-        if (response[pageid].original) {
-          let source = response[pageid].original.source;
-          flagElem.setAttribute('src', source);
-        } else {
-          flagElem.setAttribute('src', '');
-        }
-      });
   }
 }
 
-// // Event Listener button
+// // Fetch country flag
+// function addDescription(atr) {
+//   if (atr) {
+//     // add description
+//     const url = `https://en.wikipedia.org/w/api.php?format=json&action=query&origin=*&prop=extracts&exintro&redirects=1&titles=${atr}`;
+
+//     fetch(url)
+//       .then((response) => response.json())
+//       .then((response) => {
+//         response = response.query.pages;
+//         let pageid = Object.keys(response)[0];
+//         let extract = response[pageid].extract;
+
+//         let desc = document.getElementById('wiki-disc');
+//         desc.innerHTML = `<p>${extract}</p>`;
+//       });
+
+//     // flag
+//     const url2 = `https://en.wikipedia.org/w/api.php?action=query&prop=pageimages&format=json&piprop=original&titles=${atr}&origin=*`;
+
+//     fetch(url2)
+//       .then((response) => response.json())
+//       .then((response) => {
+//         console.log(response);
+//         response = response.query.pages;
+//         let pageid = Object.keys(response)[0];
+//         let flagElem = document.getElementById('flag');
+
+//         if (response[pageid].original) {
+//           let source = response[pageid].original.source;
+//           flagElem.setAttribute('src', source);
+//         } else {
+//           flagElem.setAttribute('src', '');
+//         }
+//       });
+//   }
+// }
+
+//Event for form submission
 userInputForm.addEventListener('submit', (e) => {
   e.preventDefault();
   let userInputCountry = fromCountryEl.value;
   addDescription(userInputCountry);
 });
-
-// //input country they're from
-
-// // grab user input
 
 // // add to local storage
 

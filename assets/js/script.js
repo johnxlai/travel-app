@@ -1,6 +1,7 @@
 // // selectors
 const userInputForm = document.getElementById('user-input-form');
 let fromCountryEl = document.getElementById('from-country');
+let goingToCountry = document.getElementById('going-to-country');
 const descriptionEl = document.getElementById('wiki-disc');
 const flagElem = document.getElementById('flag');
 
@@ -39,7 +40,7 @@ function fetchUnsplash(fromCountryName) {
 
   let apiUrl = `https://api.unsplash.com/search/photos?page1&query=${fromCountryName}&client_id=${unsplashApiKey}/`;
 
-  https: fetch(apiUrl).then((response) => {
+  fetch(apiUrl).then((response) => {
     if (response.ok) {
       response.json().then(function (data) {
         // console.log(data);
@@ -69,11 +70,12 @@ function displayFlag(country) {
 
 // //unsplash api
 function displayImages(images) {
-  console.log(images.results);
+  const unsplashSection = $('.unsplash-imgs');
+  unsplashSection.empty();
 
   $.each(images.results, function (key, value) {
     console.log(value.urls.small);
-    $('.unsplash-imgs').append(
+    unsplashSection.append(
       `<img src="${value.urls.small}" alt="${value.alt_description}">
       <p>Photo by ${value.user.name} on <a href="https://unsplash.com" target="_blank">Unsplash</a></p>
       <p>${value.description}</p>
@@ -101,3 +103,22 @@ userInputForm.addEventListener('submit', (e) => {
 // // create fetch function for grabing money exchange
 
 // // show map
+
+let myApiKey = '8e233f62d86910e2c75ea2bb';
+const currency_one = 'USD';
+const currency_two = 'CAD';
+
+currencyApiUrl = `https://v6.exchangerate-api.com/v6/${myApiKey}/pair/${currency_one}/${currency_two}`;
+fetch(currencyApiUrl).then((response) => {
+  //console.log(response);
+  if (response.ok) {
+    response.json().then(function (data) {
+      display(data);
+    });
+    // } else {
+    console.log('something is not right');
+  }
+});
+function display(money) {
+  console.log(money.conversion_rate + currency_two);
+}

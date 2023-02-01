@@ -12,9 +12,9 @@ function errorModalClose() {
   errorElem.classList.remove('display-none-error');
 
   console.log('errorModalClose - DONE');
-  const errorElemBtn = document.querySelector('#modal-error button');
+  const errorElemBtn = errorElem.querySelector('#modal-error button');
+
   errorElemBtn.addEventListener('click', () => {
-    const errorElem = document.getElementById('modal-error');
     errorElem.classList.add('display-none-error');
   });
 }

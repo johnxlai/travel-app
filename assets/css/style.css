@@ -36,11 +36,6 @@ main {
   background-color: gray;
 }
 
-#currency {
-  height: 50px;
-  background-color: green;
-}
-
 #wiki-map {
   height: 400px;
   width: 100%;

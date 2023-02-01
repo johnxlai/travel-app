@@ -4,8 +4,7 @@ const fromCountry = $('#from-country');
 const goingToCountry = $('#going-to-country');
 const descriptionEl = document.getElementById('wiki-disc');
 const flagElem = document.getElementById('flag');
-
-// // listenser on form input (country they're interested about)
+const currencyEl = document.getElementById('currency');
 
 // // Fetch country description using WIKI API
 function fetchDescription(fromCountryName) {
@@ -87,7 +86,6 @@ function displayImages(images) {
 //Event for form submission
 userInputForm.addEventListener('submit', (e) => {
   e.preventDefault();
-  console.log(fromCountry, goingToCountry);
   let toWhere = goingToCountry.find(':selected').text();
   let toWhereCurrency = goingToCountry.find(':selected').val();
   let fromWhere = fromCountry.find(':selected').text();
@@ -128,6 +126,13 @@ function fetchCurrency(homeCurrency, vacatCurrency) {
 function displayExchange(data) {
   console.log(data);
   console.log('display exchange rate here');
+  currencyEl.innerHTML = `
+    <div class="flex flex-col">
+      Home $$$ = ${data.base_code}
+      Vacation $$$ = ${data.target_code}
+      Conversion Rate = ${data.conversion_rate}
+    </div>
+    `;
 }
 
 function correctName(nameOfCountry) {
@@ -420,17 +425,3 @@ function errorModalClose() {
     errorElem.classList.add('display-none-error');
   });
 }
-
-// countryList.forEach((country) => {
-//   if (userInputOne === Object.keys(country)[0]) {
-//     // console.log(`User input  - ${userInput}`);
-//     currency_one = Object.values(country)[0];
-//   }
-// });
-
-// countryList.forEach((country) => {
-//   if (userInputTwo === Object.keys(country)[0]) {
-//     // console.log(`User input  - ${userInput}`);
-//     currency_two = Object.values(country)[0];
-//   }
-// });

@@ -24,6 +24,8 @@ function displayImages(images) {
   $('#wiki-img').append(
     `<img src="${photoDetails.urls.small}" alt="${photoDetails.alt_description}">
     <p>${photoDetails.user.username}</p>
+    <a href="${photoDetails.links.download}">Download</a>
+
     `
   );
 }

@@ -23,9 +23,9 @@ function displayImages(images) {
   let photoDetails = images.results[0];
   $('#wiki-img').append(
     `<img src="${photoDetails.urls.small}" alt="${photoDetails.alt_description}">
-    <p>${photoDetails.user.username}</p>
-    <a href="${photoDetails.links.download}">Download</a>
-
+    <p>Photo by ${photoDetails.user.name} on <a href="https://unsplash.com" target="_blank">Unsplash</a></p>
+    <p>${photoDetails.description}</p>
+    <a href="${photoDetails.links.download}&force=true" target="_blank"  download="">Download</a>
     `
   );
 }

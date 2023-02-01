@@ -1,7 +1,7 @@
 // // selectors
 const userInputForm = document.getElementById('user-input-form');
-let fromCountryEl = document.getElementById('from-country');
-let goingToCountry = document.getElementById('going-to-country');
+const fromCountryEl = document.getElementById('from-country');
+const goingToCountry = document.getElementById('going-to-country');
 const descriptionEl = document.getElementById('wiki-disc');
 const flagElem = document.getElementById('flag');
 
@@ -104,21 +104,27 @@ userInputForm.addEventListener('submit', (e) => {
 
 // // show map
 
-let myApiKey = '8e233f62d86910e2c75ea2bb';
-const currency_one = 'USD';
-const currency_two = 'CAD';
+function convertCountryToCurrency(fromCountry, goingToCountry) {
+  grabCurrency(fromMoney, toMoney);
+}
 
-currencyApiUrl = `https://v6.exchangerate-api.com/v6/${myApiKey}/pair/${currency_one}/${currency_two}`;
-fetch(currencyApiUrl).then((response) => {
-  //console.log(response);
-  if (response.ok) {
-    response.json().then(function (data) {
-      display(data);
-    });
-    // } else {
-    console.log('something is not right');
-  }
-});
-function display(money) {
-  console.log(money.conversion_rate + currency_two);
+//fetch currency api
+function grabCurrency(from$$$, to$$$) {
+  const currencyApiKey = '8e233f62d86910e2c75ea2bb';
+  currencyApiUrl = `https://v6.exchangerate-api.com/v6/${currencyApiKey}/pair/${from$$$}/${to$$$}`;
+  fetch(currencyApiUrl).then((response) => {
+    //console.log(response);
+    if (response.ok) {
+      response.json().then(function (data) {
+        displayExchange(data);
+      });
+      // } else {
+      console.log('something is not right');
+    }
+  });
+}
+
+function displayExchange() {
+  console.log('display exchange rate here');
+  // console.log(money.conversion_rate + currency_two);
 }

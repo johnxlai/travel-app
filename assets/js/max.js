@@ -1,16 +1,6 @@
 
 
-// Event Listener button
-let btn = document.getElementById('btn');
-btn.addEventListener('click', (e) => {
-    e.preventDefault();
-    let formValue = document.getElementById('text-name').value;
-    correctName(formValue);
-});
 
-// description and flag
-function addDescription(atr) {
-    if (atr) {
 
         // add description
         const url = `https://en.wikipedia.org/w/api.php?format=json&action=query&origin=*&prop=extracts&exintro&redirects=1&titles=${atr}`;
@@ -341,3 +331,4 @@ function errorModalClose(){
 
     })
 }
+

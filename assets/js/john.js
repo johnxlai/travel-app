@@ -1,10 +1,10 @@
 //unsplash api
 // https://unsplash.com/documentation#search-photos
 
-let country = 'Canada';
+let country = 'canada';
 const apiKey = `dLu5Px-IAAbB5LQ4bnPDg8BwZSRXdqoMLaZdTj_vEqk`;
 
-let apiUrl = `https://api.unsplash.com/photos/?query=${country}&client_id=dLu5Px-IAAbB5LQ4bnPDg8BwZSRXdqoMLaZdTj_vEqk&/
+let apiUrl = `https://api.unsplash.com/search/photos?page1&query=${country}&client_id=dLu5Px-IAAbB5LQ4bnPDg8BwZSRXdqoMLaZdTj_vEqk&/
 `;
 
 fetch(apiUrl).then((response) => {
@@ -19,9 +19,11 @@ fetch(apiUrl).then((response) => {
 });
 
 function displayImages(images) {
-  console.log(images);
-
+  console.log(images.results);
+  let photoDetails = images.results[0];
   $('#wiki-img').append(
-    `<img src="https://upload.wikimedia.org/wikipedia/commons/f/fc/Flag_of_Mexico.svg">`
+    `<img src="${photoDetails.urls.small}" alt="${photoDetails.alt_description}">
+    <p>${photoDetails.user.username}</p>
+    `
   );
 }

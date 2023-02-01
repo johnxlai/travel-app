@@ -420,3 +420,17 @@ function errorModalClose() {
     errorElem.classList.add('display-none-error');
   });
 }
+
+// countryList.forEach((country) => {
+//   if (userInputOne === Object.keys(country)[0]) {
+//     // console.log(`User input  - ${userInput}`);
+//     currency_one = Object.values(country)[0];
+//   }
+// });
+
+// countryList.forEach((country) => {
+//   if (userInputTwo === Object.keys(country)[0]) {
+//     // console.log(`User input  - ${userInput}`);
+//     currency_two = Object.values(country)[0];
+//   }
+// });

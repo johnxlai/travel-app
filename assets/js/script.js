@@ -21,6 +21,7 @@ function grabUserInput(e) {
   fetchFlag(toWhere);
   fetchUnsplash(toWhere);
   fetchCurrency(fromWhereCurrency, toWhereCurrency);
+  addToLocalStorage(fromWhere, toWhere);
 }
 
 //Error Modal
@@ -158,30 +159,29 @@ userInputForm.addEventListener('submit', grabUserInput);
 // //local storage will be used for history
 
 // //the local storage var will be used for the fetch search for wiki api
-// function addToLocalStorage(home, away) {
-//   let storedHistory = JSON.parse(localStorage.getItem('searchHistory')) || [];
+function addToLocalStorage(home, away) {
+  let storedHistory = JSON.parse(localStorage.getItem('searchHistory')) || [];
 
-//   let country = {
-//     home,
-//     away,
-//   };
+  let country = {
+    home,
+    away,
+  };
 
-//   const checkCountryExist = (storedHistory) => {
-//     console.log(storedHistory.home, country.home);
-//     storedHistory.home === country.home;
-//   };
+  const checkCountryExist = (storedHistory) => {
+    console.log(storedHistory.home, country.home);
+    storedHistory.home === country.home;
+  };
 
-//   console.log(storedHistory.some(checkCountryExist));
+  console.log(storedHistory.some(checkCountryExist));
 
-//   if (!storedHistory.some(checkCountryExist)) {
-//     storedHistory.push(country);
-//   }
+  if (!storedHistory.some(checkCountryExist)) {
+    storedHistory.push(country);
+  }
 
-//   localStorage.setItem('searchHistory', JSON.stringify(storedHistory));
+  localStorage.setItem('searchHistory', JSON.stringify(storedHistory));
 
-//   displayLocalHistory();
-// }
-// addToLocalStorage('canada', 'usa');
+  displayLocalHistory();
+}
 
 function displayLocalHistory() {
   historyUl.innerHTML = ``;

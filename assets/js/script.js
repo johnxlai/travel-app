@@ -8,29 +8,27 @@ const flagElem = document.getElementById('flag');
 const currencyEl = document.getElementById('currency');
 const errorElem = document.getElementById('modal-error');
 const historyUl = document.getElementById('history-list');
+let vacationDetails = {};
 
 //Grab user input
 function grabUserInput(e) {
   e.preventDefault();
   let toWhere = goingToCountry.find(':selected').text();
   let toWhereCurrency = goingToCountry.find(':selected').val();
-  let fromWhere = fromCountry.find(':selected').text();
-  // let fromWhereCurrency = fromCountry.find(':selected').val();
 
   //Fetch from API
   fetchDescription(toWhere);
   fetchFlag(toWhere);
   fetchUnsplash(toWhere);
+  vacationDetails = { toWhere, toWhereCurrency };
   addToLocalStorage(toWhere);
 }
 
 function grabUserOriginInput(e) {
   e.preventDefault();
-  let fromWhere = fromCountry.find(':selected').text();
-  let fromWhereCurrency = fromCountry.find(':selected').val();
+  let homeCurrency = fromCountry.find(':selected').val();
 
-  console.log(fromWhere, fromWhereCurrency);
-  fetchCurrency(fromWhereCurrency);
+  fetchCurrency(homeCurrency, vacationDetails.toWhereCurrency);
 }
 
 ////////// ERROR Handlers ///////////////

@@ -24,7 +24,7 @@ function grabUserVisitingInput(e) {
     vacationDetails = { toWhere, toWhereCurrency };
     addToLocalStorage(toWhere);
     clickLocaList();
-  
+
     currencyEl.innerHTML = ``;
   } else {
     // add error massage
@@ -36,7 +36,6 @@ function grabUserOriginInput(e) {
   let homeCurrency = fromCountry.find(':selected').val();
   console.log(vacationDetails);
   fetchCurrency(homeCurrency, vacationDetails.toWhereCurrency);
-
 }
 
 ////////// ERROR Handlers ///////////////
@@ -84,7 +83,7 @@ function fetchFlag(fromCountryName) {
 function fetchUnsplash(fromCountryName) {
   const unsplashApiKey = `dLu5Px-IAAbB5LQ4bnPDg8BwZSRXdqoMLaZdTj_vEqk&`;
 
-  let apiUrl = `https://api.unsplash.com/search/photos?page1&query=${fromCountryName}&client_id=${unsplashApiKey}/`;
+  let apiUrl = `https://api.unsplash.com/search/photos?page1&per_page=5&query=${fromCountryName}&orientation=landscape&client_id=${unsplashApiKey}/`;
 
   fetch(apiUrl).then((response) => {
     if (response.ok) {
@@ -117,7 +116,6 @@ function fetchCurrency(homeCurrency, vacatCurrency) {
 }
 
 //////////////////  DISPLAY FUNCTIONS   ////////
-
 
 //Display Country Description
 function displayDescription(country) {
@@ -225,7 +223,6 @@ function clickLocaList() {
     });
   }
 }
-
 
 //Event for form submission
 userInputForm.addEventListener('submit', grabUserVisitingInput);

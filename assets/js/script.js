@@ -4,6 +4,7 @@ const userOriginForm = document.getElementById('user-input-origin-form');
 const fromCountry = $('#from-country');
 const goingToCountry = $('#going-to-country');
 const descriptionEl = document.getElementById('wiki-disc');
+const wikiTitleEl = document.getElementById('wiki-tile');
 const flagElem = document.getElementById('flag');
 const currencyEl = document.getElementById('currency');
 const errorElem = document.getElementById('modal-error');
@@ -18,6 +19,9 @@ function grabUserVisitingInput(e) {
 
   //Fetch from API
   if (toWhere != 'Select a country ...') {
+    
+    wikiTitleEl.innerHTML = `<h2>${toWhere}</h2>`;
+
     fetchDescription(toWhere);
     fetchFlag(toWhere);
     fetchUnsplash(toWhere);
@@ -123,7 +127,7 @@ function fetchCurrency(homeCurrency, vacatCurrency) {
 function displayDescription(country) {
   let pageid = Object.keys(country)[0];
   let extract = country[pageid].extract;
-
+  
   descriptionEl.innerHTML = `<p>${extract}</p>`;
 }
 

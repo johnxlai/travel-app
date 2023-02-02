@@ -162,14 +162,19 @@ function addToLocalStorage() {
   let searchHistory = JSON.parse(localStorage.getItem('searchHistory')) || [];
 
   let country = {
-    home: 'canadase',
-    away: 'canadase',
+    home: 'canada',
+    away: 'usa',
   };
-
-  if (!searchHistory.includes(country)) {
-    searchHistory.push(country);
-    console.log('not the same');
-  }
+  const checkObjExist = function (arr) {
+    arr.some((el) => {
+      if (el.home === country.home && el.away === country.away) {
+        console.log('dont add');
+      } else {
+        searchHistory.push(country);
+      }
+    });
+  };
+  checkObjExist(searchHistory);
 
   console.log(searchHistory);
   localStorage.setItem('searchHistory', JSON.stringify(searchHistory));

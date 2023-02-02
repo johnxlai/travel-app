@@ -10,10 +10,7 @@
 }
 
 #history-list li {
-  margin: 12px 15px 0 15px;
-  height: 25px;
   list-style-type: none;
-  background-color: orange;
 }
 
 main {

@@ -6,6 +6,7 @@ const descriptionEl = document.getElementById('wiki-disc');
 const flagElem = document.getElementById('flag');
 const currencyEl = document.getElementById('currency');
 const errorElem = document.getElementById('modal-error');
+const historyUl = document.getElementById('history-list');
 
 //Grab user input
 function grabUserInput(e) {
@@ -157,6 +158,31 @@ userInputForm.addEventListener('submit', grabUserInput);
 // //local storage will be used for history
 
 // //the local storage var will be used for the fetch search for wiki api
+function addToLocalStorage() {
+  let searchHistory = JSON.parse(localStorage.getItem('searchHistory')) || [];
+
+  let country = {
+    home: 'canada',
+    away: 'russia',
+  };
+  console.log(searchHistory);
+  searchHistory.push(country);
+  console.log(country);
+  console.log(searchHistory);
+
+  displayLocalHistory();
+}
+addToLocalStorage();
+
+function displayLocalHistory() {
+  let searchHistory = JSON.parse(localStorage.getItem('searchHistory'));
+
+  historyUl.innerHTML = `
+    <li> test </li>
+  `;
+
+  localStorage.setItem('searchHistory', JSON.stringify(searchHistory));
+}
 
 function init() {
   //get init

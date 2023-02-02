@@ -60,7 +60,7 @@ function fetchUnsplash(fromCountryName) {
       });
     } else {
       errorModalClose();
-      console.log('something is not right');
+      console.error('something is not right');
     }
   });
 }
@@ -77,6 +77,7 @@ function fetchCurrency(homeCurrency, vacatCurrency) {
       });
     } else {
       errorModalClose();
+      console.error('something is not right');
     }
   });
 }
@@ -104,6 +105,8 @@ function displayFlag(country) {
 // //unsplash api
 function displayImages(images) {
   const unsplashSection = $('.unsplash-imgs');
+
+  //empty previous loaded images
   unsplashSection.empty();
 
   $.each(images.results, function (key, value) {
@@ -122,8 +125,6 @@ function displayMap() {}
 
 // display exchange rate
 function displayExchange(data) {
-  console.log(data);
-  console.log('display exchange rate here');
   currencyEl.innerHTML = `
     <div class="flex flex-col">
       Home $$$ = ${data.base_code}

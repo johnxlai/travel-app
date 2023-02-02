@@ -169,7 +169,14 @@ function addToLocalStorage(home, away) {
 
   const checkCountryExist = (storedHistory) => {
     console.log(storedHistory.home, country.home);
-    storedHistory.home === country.home;
+
+    if (
+      storedHistory.home === country.home &&
+      storedHistory.away === country.away
+    ) {
+      return true;
+    }
+    return false;
   };
 
   console.log(storedHistory.some(checkCountryExist));

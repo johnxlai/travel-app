@@ -1,5 +1,6 @@
 // // selectors
 const userInputForm = document.getElementById('user-input-form');
+const userOriginForm = document.getElementById('user-input-origin-form');
 const fromCountry = $('#from-country');
 const goingToCountry = $('#going-to-country');
 const descriptionEl = document.getElementById('wiki-disc');
@@ -15,14 +16,21 @@ function grabUserInput(e) {
   let toWhereCurrency = goingToCountry.find(':selected').val();
   let fromWhere = fromCountry.find(':selected').text();
   // let fromWhereCurrency = fromCountry.find(':selected').val();
-  let fromWhereCurrency = 'CAD';
 
   //Fetch from API
   fetchDescription(toWhere);
   fetchFlag(toWhere);
   fetchUnsplash(toWhere);
-  fetchCurrency(fromWhereCurrency, toWhereCurrency);
   addToLocalStorage(toWhere);
+}
+
+function grabUserOriginInput(e) {
+  e.preventDefault();
+  let fromWhere = fromCountry.find(':selected').text();
+  let fromWhereCurrency = fromCountry.find(':selected').val();
+
+  console.log(fromWhere, fromWhereCurrency);
+  fetchCurrency(fromWhereCurrency);
 }
 
 ////////// ERROR Handlers ///////////////
@@ -197,6 +205,7 @@ function addToLocalStorage(away) {
 
 //Event for form submission
 userInputForm.addEventListener('submit', grabUserInput);
+userOriginForm.addEventListener('submit', grabUserOriginInput);
 
 function init() {
   //get init

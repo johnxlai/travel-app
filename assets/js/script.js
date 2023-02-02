@@ -146,7 +146,7 @@ function displayImages(images) {
   $.each(images.results, function (index, value) {
     unsplashSection.append(
       `<div class="carousel-item overflow-hidden">
-        <img src="${value.urls.small}" class="d-block object-cover w-100 max-h-[475px]" alt="${value.alt_description}" />
+        <img src="${value.urls.small}" class="d-block object-cover w-100 max-h-[300px]" alt="${value.alt_description}" />
           <div class="carousel-caption d-none d-md-block">
             <h5>Photo by ${value.user.name} on <a href="https://unsplash.com" target="_blank">Unsplash</a></h5>
             <p>${value.description}</p>
@@ -159,7 +159,7 @@ function displayImages(images) {
       `<button
         type="button"
         style="width: 100px;"
-        data-bs-target="#carouselExampleIndicators"
+        data-bs-target="#carouselUnsplashIndicators"
         data-bs-slide-to="${index}"
         aria-label="Slide ${index}">
         <img

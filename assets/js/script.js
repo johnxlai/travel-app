@@ -24,10 +24,11 @@ function grabUserVisitingInput(e) {
     vacationDetails = { toWhere, toWhereCurrency };
     addToLocalStorage(toWhere);
     clickLocaList();
-  
+
     currencyEl.innerHTML = ``;
   } else {
     // add error massage
+    errorModalClose();
   }
 }
 
@@ -36,7 +37,6 @@ function grabUserOriginInput(e) {
   let homeCurrency = fromCountry.find(':selected').val();
   console.log(vacationDetails);
   fetchCurrency(homeCurrency, vacationDetails.toWhereCurrency);
-
 }
 
 ////////// ERROR Handlers ///////////////
@@ -44,7 +44,7 @@ function grabUserOriginInput(e) {
 function errorModalClose() {
   errorElem.classList.remove('display-none-error');
 
-  console.log('errorModalClose - DONE');
+  console.error('something is not right');
   const errorElemBtn = errorElem.querySelector('#modal-error button');
 
   errorElemBtn.addEventListener('click', () => {
@@ -84,7 +84,7 @@ function fetchFlag(fromCountryName) {
 function fetchUnsplash(fromCountryName) {
   const unsplashApiKey = `dLu5Px-IAAbB5LQ4bnPDg8BwZSRXdqoMLaZdTj_vEqk&`;
 
-  let apiUrl = `https://api.unsplash.com/search/photos?page1&query=${fromCountryName}&client_id=${unsplashApiKey}/`;
+  let apiUrl = `https://api.unsplash.com/search/photos?page1&per_page=5&query=${fromCountryName}&orientation=landscape&client_id=${unsplashApiKey}/`;
 
   fetch(apiUrl).then((response) => {
     if (response.ok) {
@@ -94,7 +94,6 @@ function fetchUnsplash(fromCountryName) {
       });
     } else {
       errorModalClose();
-      console.error('something is not right');
     }
   });
 }
@@ -111,13 +110,11 @@ function fetchCurrency(homeCurrency, vacatCurrency) {
       });
     } else {
       errorModalClose();
-      console.error('something is not right');
     }
   });
 }
 
 //////////////////  DISPLAY FUNCTIONS   ////////
-
 
 //Display Country Description
 function displayDescription(country) {
@@ -138,20 +135,43 @@ function displayFlag(country) {
 
 // //unsplash api
 function displayImages(images) {
-  const unsplashSection = $('.unsplash-imgs');
+  const unsplashSection = $('.unsplash-main-imgs');
+  const unsplashThumbs = $('.unsplash-thumbs');
 
   //empty previous loaded images
   unsplashSection.empty();
-
-  $.each(images.results, function (key, value) {
+  unsplashThumbs.empty();
+  console.log(images);
+  $.each(images.results, function (index, value) {
     unsplashSection.append(
-      `<img src="${value.urls.small}" alt="${value.alt_description}">
-      <p>Photo by ${value.user.name} on <a href="https://unsplash.com" target="_blank">Unsplash</a></p>
-      <p>${value.description}</p>
-      <a href="${value.links.download}&force=true" target="_blank"  download="">Download</a>
-      `
+      `<div class="carousel-item overflow-hidden">
+        <img src="${value.urls.small}" class="d-block object-cover w-100 max-h-[300px]" alt="${value.alt_description}" />
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Photo by ${value.user.name} on <a href="https://unsplash.com" target="_blank">Unsplash</a></h5>
+            <p>${value.description}</p>
+            <a href="${value.links.download}&force=true" target="_blank"  download="">Download</a>
+          </div>
+      </div>`
+    );
+
+    unsplashThumbs.append(
+      `<button
+        type="button"
+        style="width: 100px;"
+        data-bs-target="#carouselUnsplashIndicators"
+        data-bs-slide-to="${index}"
+        aria-label="Slide ${index}">
+        <img
+          class="d-block w-100 max-h-[50px] object-cover"
+          src="${value.urls.small}"
+          class="img-fluid" />
+      </button>`
     );
   });
+
+  //Grab first children and add class active
+  unsplashSection.children().eq(0).addClass('active');
+  unsplashThumbs.children().eq(0).addClass('active');
 }
 
 // display exchange rate
@@ -200,7 +220,6 @@ function displayLocalHistory() {
   historyUl.innerHTML = ``;
   let searchHistory = JSON.parse(localStorage.getItem('searchHistory'));
 
-  console.log(searchHistory);
   searchHistory.forEach(function (search) {
     console.log(search);
     let li = `
@@ -209,6 +228,8 @@ function displayLocalHistory() {
     // <li><a href="" class="bg-indigo-500">${search.away} </a><li>
     historyUl.innerHTML += li;
   });
+
+  clickLocaList();
 }
 // click to local links
 function clickLocaList() {
@@ -221,11 +242,10 @@ function clickLocaList() {
       fetchFlag(liElem[i].innerText);
       fetchUnsplash(liElem[i].innerText);
       addToLocalStorage(liElem[i].innerText);
-      clickLocaList();
+      // clickLocaList();
     });
   }
 }
-
 
 //Event for form submission
 userInputForm.addEventListener('submit', grabUserVisitingInput);
@@ -233,5 +253,6 @@ userOriginForm.addEventListener('submit', grabUserOriginInput);
 
 function init() {
   //get init
+  displayLocalHistory();
 }
 init();

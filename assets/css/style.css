@@ -3,7 +3,6 @@
   justify-content: center;
 }
 
-
 #history-list li {
   list-style-type: none;
 }
@@ -22,18 +21,9 @@ main {
   width: 65px;
 }
 
-#wiki-disc {
-  min-height: 300px;
-  width: 100%;
-  background-color: gray;
-}
-
-
-
 #wiki-img {
   background-color: blueviolet;
 }
-
 
 .display-none-error {
   display: none;

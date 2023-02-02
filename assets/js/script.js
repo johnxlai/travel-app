@@ -169,19 +169,25 @@ function addToLocalStorage() {
   searchHistory.push(country);
   console.log(country);
   console.log(searchHistory);
+  localStorage.setItem('searchHistory', JSON.stringify(searchHistory));
 
   displayLocalHistory();
 }
 addToLocalStorage();
 
 function displayLocalHistory() {
+  historyUl.innerHTML = ``;
   let searchHistory = JSON.parse(localStorage.getItem('searchHistory'));
 
-  historyUl.innerHTML = `
-    <li> test </li>
-  `;
+  console.log(searchHistory);
+  searchHistory.forEach(function (search) {
+    console.log(search);
+    let li = `
+      <li><a href="" class="bg-indigo-500">${search.home}, ${search.away} </a><li>
+    `;
 
-  localStorage.setItem('searchHistory', JSON.stringify(searchHistory));
+    historyUl.innerHTML += li;
+  });
 }
 
 function init() {

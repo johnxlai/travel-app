@@ -21,8 +21,8 @@ main {
   width: 65px;
 }
 
-#wiki-map {
-  height: 400px;
+#wiki-disc {
+  min-height: 300px;
   width: 100%;
   background-color: gray;
 }

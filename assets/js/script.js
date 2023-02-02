@@ -162,8 +162,8 @@ function addToLocalStorage() {
   let searchHistory = JSON.parse(localStorage.getItem('searchHistory')) || [];
 
   let country = {
-    home: 'canada',
-    away: 'russia',
+    home: 'canadaaa',
+    away: 'russiaaa',
   };
 
   //check home and away pair is alrdy in list
@@ -178,11 +178,8 @@ function addToLocalStorage() {
   if (!checkHomeCountry && !checkAwayCountry) {
     searchHistory.push(country);
     console.log('not the same');
-    return;
   }
 
-  console.log(searchHistory);
-  console.log(country);
   console.log(searchHistory);
   localStorage.setItem('searchHistory', JSON.stringify(searchHistory));
 

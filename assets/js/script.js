@@ -21,9 +21,10 @@ function grabUserInput(e) {
   fetchFlag(toWhere);
   fetchUnsplash(toWhere);
   fetchCurrency(fromWhereCurrency, toWhereCurrency);
-  addToLocalStorage(fromWhere, toWhere);
+  addToLocalStorage(toWhere);
 }
 
+////////// ERROR Handlers ///////////////
 //Error Modal
 function errorModalClose() {
   errorElem.classList.remove('display-none-error');
@@ -36,6 +37,7 @@ function errorModalClose() {
   });
 }
 
+////////// FETCH APIS ///////////////
 // // Fetch country description using WIKI API
 function fetchDescription(fromCountryName) {
   if (fromCountryName) {
@@ -99,10 +101,24 @@ function fetchCurrency(homeCurrency, vacatCurrency) {
   });
 }
 
-//fetch map api
-function fetchMap() {}
+//////////////////  DISPLAY FUNCTIONS   ////////
+//Display User Search History
+function displayLocalHistory() {
+  historyUl.innerHTML = ``;
+  let searchHistory = JSON.parse(localStorage.getItem('searchHistory'));
 
-//DISPLAY FUNCTION
+  console.log(searchHistory);
+  searchHistory.forEach(function (search) {
+    console.log(search);
+    let li = `
+      <li><a href="" class="bg-indigo-500">${search.away} </a><li>
+    `;
+
+    historyUl.innerHTML += li;
+  });
+}
+
+//Display Country Description
 function displayDescription(country) {
   let pageid = Object.keys(country)[0];
   let extract = country[pageid].extract;
@@ -137,9 +153,6 @@ function displayImages(images) {
   });
 }
 
-// Display map
-function displayMap() {}
-
 // display exchange rate
 function displayExchange(data) {
   currencyEl.innerHTML = `
@@ -151,59 +164,38 @@ function displayExchange(data) {
     `;
 }
 
-//Event for form submission
-userInputForm.addEventListener('submit', grabUserInput);
-
-// // add to local storage
-
-// //local storage will be used for history
-
-// //the local storage var will be used for the fetch search for wiki api
-function addToLocalStorage(home, away) {
+//Add user input to local storage
+function addToLocalStorage(away) {
   let storedHistory = JSON.parse(localStorage.getItem('searchHistory')) || [];
 
+  //Add new country from user select
   let country = {
-    home,
     away,
   };
 
+  //Check if it object is already in the array
   const checkCountryExist = (storedHistory) => {
-    console.log(storedHistory.home, country.home);
-
-    if (
-      storedHistory.home === country.home &&
-      storedHistory.away === country.away
-    ) {
+    if (storedHistory.away === country.away) {
       return true;
     }
     return false;
   };
 
-  console.log(storedHistory.some(checkCountryExist));
-
+  //If it is already in the array dont add it
   if (!storedHistory.some(checkCountryExist)) {
+    //add to array
     storedHistory.push(country);
   }
 
+  //Update localStorage with the new stored History
   localStorage.setItem('searchHistory', JSON.stringify(storedHistory));
 
+  //show local history
   displayLocalHistory();
 }
 
-function displayLocalHistory() {
-  historyUl.innerHTML = ``;
-  let searchHistory = JSON.parse(localStorage.getItem('searchHistory'));
-
-  console.log(searchHistory);
-  searchHistory.forEach(function (search) {
-    console.log(search);
-    let li = `
-      <li><a href="" class="bg-indigo-500">${search.home}, ${search.away} </a><li>
-    `;
-
-    historyUl.innerHTML += li;
-  });
-}
+//Event for form submission
+userInputForm.addEventListener('submit', grabUserInput);
 
 function init() {
   //get init

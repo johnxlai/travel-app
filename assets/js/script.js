@@ -21,7 +21,7 @@ function grabUserInput(e) {
   fetchFlag(toWhere);
   fetchUnsplash(toWhere);
   fetchCurrency(fromWhereCurrency, toWhereCurrency);
-  addToLocalStorage(fromWhere, toWhere);
+  addToLocalStorage(toWhere);
 }
 
 //Error Modal
@@ -159,27 +159,19 @@ userInputForm.addEventListener('submit', grabUserInput);
 // //local storage will be used for history
 
 // //the local storage var will be used for the fetch search for wiki api
-function addToLocalStorage(home, away) {
+function addToLocalStorage(away) {
   let storedHistory = JSON.parse(localStorage.getItem('searchHistory')) || [];
 
   let country = {
-    home,
     away,
   };
 
   const checkCountryExist = (storedHistory) => {
-    console.log(storedHistory.home, country.home);
-
-    if (
-      storedHistory.home === country.home &&
-      storedHistory.away === country.away
-    ) {
+    if (storedHistory.away === country.away) {
       return true;
     }
     return false;
   };
-
-  console.log(storedHistory.some(checkCountryExist));
 
   if (!storedHistory.some(checkCountryExist)) {
     storedHistory.push(country);

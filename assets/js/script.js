@@ -23,6 +23,7 @@ function grabUserInput(e) {
   fetchUnsplash(toWhere);
   fetchCurrency(fromWhereCurrency, toWhereCurrency);
   addToLocalStorage(toWhere);
+  clickLocaList();
 }
 
 ////////// ERROR Handlers ///////////////
@@ -103,21 +104,7 @@ function fetchCurrency(homeCurrency, vacatCurrency) {
 }
 
 //////////////////  DISPLAY FUNCTIONS   ////////
-//Display User Search History
-function displayLocalHistory() {
-  historyUl.innerHTML = ``;
-  let searchHistory = JSON.parse(localStorage.getItem('searchHistory'));
 
-  console.log(searchHistory);
-  searchHistory.forEach(function (search) {
-    console.log(search);
-    let li = `
-      <li><a href="" class="bg-indigo-500">${search.away} </a><li>
-    `;
-
-    historyUl.innerHTML += li;
-  });
-}
 
 //Display Country Description
 function displayDescription(country) {
@@ -194,6 +181,38 @@ function addToLocalStorage(away) {
   //show local history
   displayLocalHistory();
 }
+
+//Display User Search History
+function displayLocalHistory() {
+  historyUl.innerHTML = ``;
+  let searchHistory = JSON.parse(localStorage.getItem('searchHistory'));
+
+  console.log(searchHistory);
+  searchHistory.forEach(function (search) {
+    console.log(search);
+    let li = `
+    <li>${search.away}</li>
+    `;
+    // <li><a href="" class="bg-indigo-500">${search.away} </a><li>
+    historyUl.innerHTML += li;
+  });
+}
+// click to local links
+function clickLocaList() {
+  let liElem = document.querySelectorAll('#history-list li');
+  console.log(liElem);
+
+  for (let i = 0; i < liElem.length; i++) {
+    liElem[i].addEventListener('click', () => {
+      fetchDescription(liElem[i].innerText);
+      fetchFlag(liElem[i].innerText);
+      fetchUnsplash(liElem[i].innerText);
+      addToLocalStorage(liElem[i].innerText);
+      clickLocaList();
+    });
+  }
+}
+
 
 //Event for form submission
 userInputForm.addEventListener('submit', grabUserInput);

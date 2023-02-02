@@ -1,5 +1,5 @@
 // // selectors
-const userInputForm = document.getElementById('user-input-form');
+const userInputForm = document.getElementById('user-input-vacation-form');
 const userOriginForm = document.getElementById('user-input-origin-form');
 const fromCountry = $('#from-country');
 const goingToCountry = $('#going-to-country');
@@ -8,29 +8,28 @@ const flagElem = document.getElementById('flag');
 const currencyEl = document.getElementById('currency');
 const errorElem = document.getElementById('modal-error');
 const historyUl = document.getElementById('history-list');
+let vacationDetails = {};
 
 //Grab user input
-function grabUserInput(e) {
+function grabUserVisitingInput(e) {
   e.preventDefault();
   let toWhere = goingToCountry.find(':selected').text();
   let toWhereCurrency = goingToCountry.find(':selected').val();
-  let fromWhere = fromCountry.find(':selected').text();
-  // let fromWhereCurrency = fromCountry.find(':selected').val();
 
   //Fetch from API
   fetchDescription(toWhere);
   fetchFlag(toWhere);
   fetchUnsplash(toWhere);
+  vacationDetails = { toWhere, toWhereCurrency };
   addToLocalStorage(toWhere);
+  currencyEl.innerHTML = ``;
 }
 
 function grabUserOriginInput(e) {
   e.preventDefault();
-  let fromWhere = fromCountry.find(':selected').text();
-  let fromWhereCurrency = fromCountry.find(':selected').val();
-
-  console.log(fromWhere, fromWhereCurrency);
-  fetchCurrency(fromWhereCurrency);
+  let homeCurrency = fromCountry.find(':selected').val();
+  console.log(vacationDetails);
+  fetchCurrency(homeCurrency, vacationDetails.toWhereCurrency);
 }
 
 ////////// ERROR Handlers ///////////////
@@ -204,7 +203,7 @@ function addToLocalStorage(away) {
 }
 
 //Event for form submission
-userInputForm.addEventListener('submit', grabUserInput);
+userInputForm.addEventListener('submit', grabUserVisitingInput);
 userOriginForm.addEventListener('submit', grabUserOriginInput);
 
 function init() {

@@ -1,5 +1,5 @@
 // // selectors
-const userInputForm = document.getElementById('user-input-form');
+const userInputForm = document.getElementById('user-input-vacation-form');
 const userOriginForm = document.getElementById('user-input-origin-form');
 const fromCountry = $('#from-country');
 const goingToCountry = $('#going-to-country');
@@ -8,29 +8,31 @@ const flagElem = document.getElementById('flag');
 const currencyEl = document.getElementById('currency');
 const errorElem = document.getElementById('modal-error');
 const historyUl = document.getElementById('history-list');
+let vacationDetails = {};
 
 //Grab user input
-function grabUserInput(e) {
+function grabUserVisitingInput(e) {
   e.preventDefault();
   let toWhere = goingToCountry.find(':selected').text();
   let toWhereCurrency = goingToCountry.find(':selected').val();
-  let fromWhere = fromCountry.find(':selected').text();
-  // let fromWhereCurrency = fromCountry.find(':selected').val();
 
   //Fetch from API
   fetchDescription(toWhere);
   fetchFlag(toWhere);
   fetchUnsplash(toWhere);
+  vacationDetails = { toWhere, toWhereCurrency };
   addToLocalStorage(toWhere);
+  clickLocaList();
+
+  currencyEl.innerHTML = ``;
 }
 
 function grabUserOriginInput(e) {
   e.preventDefault();
-  let fromWhere = fromCountry.find(':selected').text();
-  let fromWhereCurrency = fromCountry.find(':selected').val();
+  let homeCurrency = fromCountry.find(':selected').val();
+  console.log(vacationDetails);
+  fetchCurrency(homeCurrency, vacationDetails.toWhereCurrency);
 
-  console.log(fromWhere, fromWhereCurrency);
-  fetchCurrency(fromWhereCurrency);
 }
 
 ////////// ERROR Handlers ///////////////
@@ -111,21 +113,7 @@ function fetchCurrency(homeCurrency, vacatCurrency) {
 }
 
 //////////////////  DISPLAY FUNCTIONS   ////////
-//Display User Search History
-function displayLocalHistory() {
-  historyUl.innerHTML = ``;
-  let searchHistory = JSON.parse(localStorage.getItem('searchHistory'));
 
-  console.log(searchHistory);
-  searchHistory.forEach(function (search) {
-    console.log(search);
-    let li = `
-      <li><a href="" class="bg-indigo-500">${search.away} </a><li>
-    `;
-
-    historyUl.innerHTML += li;
-  });
-}
 
 //Display Country Description
 function displayDescription(country) {
@@ -203,8 +191,40 @@ function addToLocalStorage(away) {
   displayLocalHistory();
 }
 
+//Display User Search History
+function displayLocalHistory() {
+  historyUl.innerHTML = ``;
+  let searchHistory = JSON.parse(localStorage.getItem('searchHistory'));
+
+  console.log(searchHistory);
+  searchHistory.forEach(function (search) {
+    console.log(search);
+    let li = `
+    <li>${search.away}</li>
+    `;
+    // <li><a href="" class="bg-indigo-500">${search.away} </a><li>
+    historyUl.innerHTML += li;
+  });
+}
+// click to local links
+function clickLocaList() {
+  let liElem = document.querySelectorAll('#history-list li');
+  console.log(liElem);
+
+  for (let i = 0; i < liElem.length; i++) {
+    liElem[i].addEventListener('click', () => {
+      fetchDescription(liElem[i].innerText);
+      fetchFlag(liElem[i].innerText);
+      fetchUnsplash(liElem[i].innerText);
+      addToLocalStorage(liElem[i].innerText);
+      clickLocaList();
+    });
+  }
+}
+
+
 //Event for form submission
-userInputForm.addEventListener('submit', grabUserInput);
+userInputForm.addEventListener('submit', grabUserVisitingInput);
 userOriginForm.addEventListener('submit', grabUserOriginInput);
 
 function init() {

@@ -83,7 +83,7 @@ function fetchFlag(fromCountryName) {
 function fetchUnsplash(fromCountryName) {
   const unsplashApiKey = `dLu5Px-IAAbB5LQ4bnPDg8BwZSRXdqoMLaZdTj_vEqk&`;
 
-  let apiUrl = `https://api.unsplash.com/search/photos?page1&per_page=2&query=${fromCountryName}&orientation=landscape&client_id=${unsplashApiKey}/`;
+  let apiUrl = `https://api.unsplash.com/search/photos?page1&per_page=5&query=${fromCountryName}&orientation=landscape&client_id=${unsplashApiKey}/`;
 
   fetch(apiUrl).then((response) => {
     if (response.ok) {
@@ -145,7 +145,7 @@ function displayImages(images) {
   console.log(images);
   $.each(images.results, function (index, value) {
     unsplashSection.append(
-      `<div class="carousel-item active">
+      `<div class="carousel-item">
         <img src="${value.urls.small}" class="d-block w-100" alt="${value.alt_description}" />
           <div class="carousel-caption d-none d-md-block">
             <h5>Photo by ${value.user.name} on <a href="https://unsplash.com" target="_blank">Unsplash</a></h5>
@@ -157,19 +157,22 @@ function displayImages(images) {
 
     unsplashThumbs.append(
       `<button
-        class="active"
-                type="button"
-                style="width: 100px"
-                data-bs-target="#carouselExampleIndicators"
-                data-bs-slide-to="${index}"
-                aria-label="Slide ${index}">
-                <img
-                  class="d-block w-100"
-                  src="${value.urls.small}"
-                  class="img-fluid" />
-              </button>`
+        type="button"
+        style="width: 100px"
+        data-bs-target="#carouselExampleIndicators"
+        data-bs-slide-to="${index}"
+        aria-label="Slide ${index}">
+        <img
+          class="d-block w-100"
+          src="${value.urls.small}"
+          class="img-fluid" />
+      </button>`
     );
   });
+  console.dir(unsplashSection);
+  unsplashSection.children().eq(0).addClass('active');
+  unsplashThumbs.children().eq(0).addClass('active');
+  // unsplashThumbs.closet('.carousel-item').addClass('active');
 }
 
 // display exchange rate

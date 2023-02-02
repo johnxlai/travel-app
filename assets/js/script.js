@@ -17,14 +17,18 @@ function grabUserVisitingInput(e) {
   let toWhereCurrency = goingToCountry.find(':selected').val();
 
   //Fetch from API
-  fetchDescription(toWhere);
-  fetchFlag(toWhere);
-  fetchUnsplash(toWhere);
-  vacationDetails = { toWhere, toWhereCurrency };
-  addToLocalStorage(toWhere);
-  clickLocaList();
-
-  currencyEl.innerHTML = ``;
+  if (toWhere != 'Select a country ...') {
+    fetchDescription(toWhere);
+    fetchFlag(toWhere);
+    fetchUnsplash(toWhere);
+    vacationDetails = { toWhere, toWhereCurrency };
+    addToLocalStorage(toWhere);
+    clickLocaList();
+  
+    currencyEl.innerHTML = ``;
+  } else {
+    // add error massage
+  }
 }
 
 function grabUserOriginInput(e) {

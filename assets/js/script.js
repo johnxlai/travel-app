@@ -28,6 +28,7 @@ function grabUserVisitingInput(e) {
     currencyEl.innerHTML = ``;
   } else {
     // add error massage
+    errorModalClose();
   }
 }
 
@@ -43,7 +44,7 @@ function grabUserOriginInput(e) {
 function errorModalClose() {
   errorElem.classList.remove('display-none-error');
 
-  console.log('errorModalClose - DONE');
+  console.error('something is not right');
   const errorElemBtn = errorElem.querySelector('#modal-error button');
 
   errorElemBtn.addEventListener('click', () => {
@@ -93,7 +94,6 @@ function fetchUnsplash(fromCountryName) {
       });
     } else {
       errorModalClose();
-      console.error('something is not right');
     }
   });
 }
@@ -110,7 +110,6 @@ function fetchCurrency(homeCurrency, vacatCurrency) {
       });
     } else {
       errorModalClose();
-      console.error('something is not right');
     }
   });
 }
@@ -221,7 +220,6 @@ function displayLocalHistory() {
   historyUl.innerHTML = ``;
   let searchHistory = JSON.parse(localStorage.getItem('searchHistory'));
 
-  console.log(searchHistory);
   searchHistory.forEach(function (search) {
     console.log(search);
     let li = `
@@ -230,6 +228,8 @@ function displayLocalHistory() {
     // <li><a href="" class="bg-indigo-500">${search.away} </a><li>
     historyUl.innerHTML += li;
   });
+
+  clickLocaList();
 }
 // click to local links
 function clickLocaList() {
@@ -242,7 +242,7 @@ function clickLocaList() {
       fetchFlag(liElem[i].innerText);
       fetchUnsplash(liElem[i].innerText);
       addToLocalStorage(liElem[i].innerText);
-      clickLocaList();
+      // clickLocaList();
     });
   }
 }
@@ -253,5 +253,6 @@ userOriginForm.addEventListener('submit', grabUserOriginInput);
 
 function init() {
   //get init
+  displayLocalHistory();
 }
 init();

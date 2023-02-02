@@ -142,8 +142,8 @@ function displayImages(images) {
   //empty previous loaded images
   unsplashSection.empty();
   unsplashThumbs.empty();
-
-  $.each(images.results, function (key, value) {
+  console.log(images);
+  $.each(images.results, function (index, value) {
     unsplashSection.append(
       `<div class="carousel-item active">
         <img src="${value.urls.small}" class="d-block w-100" alt="${value.alt_description}" />
@@ -157,11 +157,12 @@ function displayImages(images) {
 
     unsplashThumbs.append(
       `<button
+        class="active"
                 type="button"
                 style="width: 100px"
                 data-bs-target="#carouselExampleIndicators"
-                data-bs-slide-to="1"
-                aria-label="Slide 2">
+                data-bs-slide-to="${index}"
+                aria-label="Slide ${index}">
                 <img
                   class="d-block w-100"
                   src="${value.urls.small}"

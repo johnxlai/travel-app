@@ -158,30 +158,30 @@ userInputForm.addEventListener('submit', grabUserInput);
 // //local storage will be used for history
 
 // //the local storage var will be used for the fetch search for wiki api
-function addToLocalStorage() {
-  let searchHistory = JSON.parse(localStorage.getItem('searchHistory')) || [];
+// function addToLocalStorage(home, away) {
+//   let storedHistory = JSON.parse(localStorage.getItem('searchHistory')) || [];
 
-  let country = {
-    home: 'canada',
-    away: 'usa',
-  };
-  const checkObjExist = function (arr) {
-    arr.some((el) => {
-      if (el.home === country.home && el.away === country.away) {
-        console.log('dont add');
-      } else {
-        searchHistory.push(country);
-      }
-    });
-  };
-  checkObjExist(searchHistory);
+//   let country = {
+//     home,
+//     away,
+//   };
 
-  console.log(searchHistory);
-  localStorage.setItem('searchHistory', JSON.stringify(searchHistory));
+//   const checkCountryExist = (storedHistory) => {
+//     console.log(storedHistory.home, country.home);
+//     storedHistory.home === country.home;
+//   };
 
-  displayLocalHistory();
-}
-addToLocalStorage();
+//   console.log(storedHistory.some(checkCountryExist));
+
+//   if (!storedHistory.some(checkCountryExist)) {
+//     storedHistory.push(country);
+//   }
+
+//   localStorage.setItem('searchHistory', JSON.stringify(storedHistory));
+
+//   displayLocalHistory();
+// }
+// addToLocalStorage('canada', 'usa');
 
 function displayLocalHistory() {
   historyUl.innerHTML = ``;

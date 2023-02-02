@@ -14,7 +14,8 @@ function grabUserInput(e) {
   let toWhere = goingToCountry.find(':selected').text();
   let toWhereCurrency = goingToCountry.find(':selected').val();
   let fromWhere = fromCountry.find(':selected').text();
-  let fromWhereCurrency = fromCountry.find(':selected').val();
+  // let fromWhereCurrency = fromCountry.find(':selected').val();
+  let fromWhereCurrency = 'CAD';
 
   //Fetch from API
   fetchDescription(toWhere);

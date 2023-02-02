@@ -83,7 +83,7 @@ function fetchFlag(fromCountryName) {
 function fetchUnsplash(fromCountryName) {
   const unsplashApiKey = `dLu5Px-IAAbB5LQ4bnPDg8BwZSRXdqoMLaZdTj_vEqk&`;
 
-  let apiUrl = `https://api.unsplash.com/search/photos?page1&per_page=5&query=${fromCountryName}&orientation=landscape&client_id=${unsplashApiKey}/`;
+  let apiUrl = `https://api.unsplash.com/search/photos?page1&per_page=2&query=${fromCountryName}&orientation=landscape&client_id=${unsplashApiKey}/`;
 
   fetch(apiUrl).then((response) => {
     if (response.ok) {
@@ -136,18 +136,37 @@ function displayFlag(country) {
 
 // //unsplash api
 function displayImages(images) {
-  const unsplashSection = $('.unsplash-imgs');
+  const unsplashSection = $('.unsplash-main-imgs');
+  const unsplashThumbs = $('.unsplash-thumbs');
 
   //empty previous loaded images
   unsplashSection.empty();
+  unsplashThumbs.empty();
 
   $.each(images.results, function (key, value) {
     unsplashSection.append(
-      `<img src="${value.urls.small}" alt="${value.alt_description}">
-      <p>Photo by ${value.user.name} on <a href="https://unsplash.com" target="_blank">Unsplash</a></p>
-      <p>${value.description}</p>
-      <a href="${value.links.download}&force=true" target="_blank"  download="">Download</a>
-      `
+      `<div class="carousel-item active">
+        <img src="${value.urls.small}" class="d-block w-100" alt="${value.alt_description}" />
+          <div class="carousel-caption d-none d-md-block">
+            <h5>Photo by ${value.user.name} on <a href="https://unsplash.com" target="_blank">Unsplash</a></h5>
+            <p>${value.description}</p>
+            <a href="${value.links.download}&force=true" target="_blank"  download="">Download</a>
+          </div>
+      </div>`
+    );
+
+    unsplashThumbs.append(
+      `<button
+                type="button"
+                style="width: 100px"
+                data-bs-target="#carouselExampleIndicators"
+                data-bs-slide-to="1"
+                aria-label="Slide 2">
+                <img
+                  class="d-block w-100"
+                  src="${value.urls.small}"
+                  class="img-fluid" />
+              </button>`
     );
   });
 }

@@ -1,5 +1,5 @@
 // // selectors
-const userInputForm = document.getElementById('user-input-form');
+const userInputForm = document.getElementById('user-input-vacation-form');
 const userOriginForm = document.getElementById('user-input-origin-form');
 const fromCountry = $('#from-country');
 const goingToCountry = $('#going-to-country');
@@ -11,7 +11,7 @@ const historyUl = document.getElementById('history-list');
 let vacationDetails = {};
 
 //Grab user input
-function grabUserInput(e) {
+function grabUserVisitingInput(e) {
   e.preventDefault();
   let toWhere = goingToCountry.find(':selected').text();
   let toWhereCurrency = goingToCountry.find(':selected').val();
@@ -22,12 +22,13 @@ function grabUserInput(e) {
   fetchUnsplash(toWhere);
   vacationDetails = { toWhere, toWhereCurrency };
   addToLocalStorage(toWhere);
+  currencyEl.innerHTML = ``;
 }
 
 function grabUserOriginInput(e) {
   e.preventDefault();
   let homeCurrency = fromCountry.find(':selected').val();
-
+  console.log(vacationDetails);
   fetchCurrency(homeCurrency, vacationDetails.toWhereCurrency);
 }
 
@@ -202,7 +203,7 @@ function addToLocalStorage(away) {
 }
 
 //Event for form submission
-userInputForm.addEventListener('submit', grabUserInput);
+userInputForm.addEventListener('submit', grabUserVisitingInput);
 userOriginForm.addEventListener('submit', grabUserOriginInput);
 
 function init() {

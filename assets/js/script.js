@@ -165,8 +165,23 @@ function addToLocalStorage() {
     home: 'canada',
     away: 'russia',
   };
+
+  //check home and away pair is alrdy in list
+  const checkHomeCountry = searchHistory.some(
+    (oldSearch) => oldSearch.home === country.home
+  );
+  const checkAwayCountry = searchHistory.some(
+    (oldSearch) => oldSearch.away === country.away
+  );
+
+  console.log(checkHomeCountry, checkAwayCountry);
+  if (!checkHomeCountry && !checkAwayCountry) {
+    searchHistory.push(country);
+    console.log('not the same');
+    return;
+  }
+
   console.log(searchHistory);
-  searchHistory.push(country);
   console.log(country);
   console.log(searchHistory);
   localStorage.setItem('searchHistory', JSON.stringify(searchHistory));

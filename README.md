@@ -17,7 +17,7 @@
 
 
 # Screenshot
-![Final Website](assets/image/weather-forecast-app.png)
+![Final Website](assets/image/travel-app.png)
 
 # Live Site
 https://johnxlai.github.io/travel-app/

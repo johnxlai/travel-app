@@ -7,6 +7,21 @@ const flagElem = document.getElementById('flag');
 const currencyEl = document.getElementById('currency');
 const errorElem = document.getElementById('modal-error');
 
+//Grab user input
+function grabUserInput(e) {
+  e.preventDefault();
+  let toWhere = goingToCountry.find(':selected').text();
+  let toWhereCurrency = goingToCountry.find(':selected').val();
+  let fromWhere = fromCountry.find(':selected').text();
+  let fromWhereCurrency = fromCountry.find(':selected').val();
+
+  //Fetch from API
+  fetchDescription(toWhere);
+  fetchFlag(toWhere);
+  fetchUnsplash(toWhere);
+  fetchCurrency(fromWhereCurrency, toWhereCurrency);
+}
+
 //Error Modal
 function errorModalClose() {
   errorElem.classList.remove('display-none-error');
@@ -135,22 +150,15 @@ function displayExchange(data) {
 }
 
 //Event for form submission
-userInputForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-  let toWhere = goingToCountry.find(':selected').text();
-  let toWhereCurrency = goingToCountry.find(':selected').val();
-  let fromWhere = fromCountry.find(':selected').text();
-  let fromWhereCurrency = fromCountry.find(':selected').val();
-
-  //Fetch from API
-  fetchDescription(toWhere);
-  fetchFlag(toWhere);
-  fetchUnsplash(toWhere);
-  fetchCurrency(fromWhereCurrency, toWhereCurrency);
-});
+userInputForm.addEventListener('submit', grabUserInput);
 
 // // add to local storage
 
 // //local storage will be used for history
 
 // //the local storage var will be used for the fetch search for wiki api
+
+function init() {
+  //get init
+}
+init();

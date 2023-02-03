@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Goudy+Bookletter+1911&family=Reem+Kufi+Fun&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Goudy+Bookletter+1911&family=Raleway&family=Reem+Kufi+Fun&display=swap"
       rel="stylesheet" />
 
     <!-- bootstrap -->
@@ -29,15 +29,21 @@
 
     <title>Travel app</title>
   </head>
-  <body>
+  <body class="bg-slate-900">
     <div id="wrapper" class="flex">
-      <aside class="w-60 fixed left-0 top-0 h-screen bg-slate-700 px-3 pt-9">
+
+      <!--Sidebar-->
+      <aside class="w-60 fixed left-0 top-0 h-screen bg-yellow-50">
+
+        <img src="./assets/image/vector.png" alt="logo" class="w-20 m-2" />
+        <div class = "p-10">
+        
         <!-- INPUT -->
-        <form id="user-input-vacation-form" class="bg-black flex flex-col p-1">
-          <label class="text-white" for="going-to-country">Going To:</label>
-          <select id="going-to-country" name="going-to-country">
+        <form id="user-input-vacation-form" class="flex flex-col">
+          <label class="text-red-500 text-md pb-2" id="label-form" for="going-to-country">Select a country</label>
+          <select id="going-to-country" name="going-to-country" class="border-b-2 border-slate-900  ">
             <option value="" label="Select a country ... " disabled selected>
-              Select a country ...
+               ...
             </option>
             <option value="AFN">Afghanistan</option>
             <option value="ALL">Albania</option>
@@ -244,60 +250,75 @@
             <option value="ZWD">Zimbabwe</option>
           </select>
           <input
-            type="submit"
-            id="form-submit"
-            class="bg-indigo-500 p-2"
-            value="Submit" />
+          type="submit"
+          id="form-submit"
+          class="bg-red-500 hover:bg-red-700 text-white text-sm p-1 mt-2 mx-4 rounded"
+          value="Submit" />
         </form>
+        <!--HISTORU -->
+        <p id="search-history" class ="pt-10 text-red-500 pb-2">Search History</p>
         <ul id="history-list">
-          <li><a href="" class="bg-indigo-500"></a></li>
+          <li><a href=""></a></li>
         </ul>
+      </div>
       </aside>
-
+<!--title and flag-->
       <main class="flex-1 ml-60">
-        <header class="bg-green-400 p-10">
-          <h1 class="visiting-country-name text-center">Country Title</h1>
-          <img id="flag" class="max-w-[300px] p-10 mx-auto" src="" />
+        <header class="p-10">
+          <div id="wiki-tile" class="text-center text-5xl text-yellow-50"></div>
+          <img id="flag" class="max-w-[350px] p-10 mx-auto" src="" />
         </header>
 
-        <article class="min-h-[300px] bg-amber-400 p-10">
-          <section id="wiki-disc"></section>
-          <div
-            id="carouselUnsplashIndicators"
-            class="carousel slide"
-            data-bs-ride="carousel">
-            <div class="carousel-indicators -mb-6 unsplash-thumbs"></div>
-            <div class="carousel-inner unsplash-main-imgs"></div>
-            <button
-              class="carousel-control-prev"
-              type="button"
-              data-bs-target="#carouselUnsplashIndicators"
-              data-bs-slide="prev">
-              <span
-                class="carousel-control-prev-icon"
-                aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button
-              class="carousel-control-next"
-              type="button"
-              data-bs-target="#carouselUnsplashIndicators"
-              data-bs-slide="next">
-              <span
-                class="carousel-control-next-icon"
-                aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
-          </div>
+        <article class="min-h-min px-10">
+          
+<!--bio-->
+          <section id="wiki-disc" class="max-w-screen-md mx-auto text-yellow-50"></section>
+          
         </article>
 
-        <section id="wiki-img" class="min-h-[50vh] bg-indigo-400 p-10">
+
+        <!--CAROUSEL-->
+<section id="carousel"class="my-28">
+
+  <div
+  id="carouselUnsplashIndicators"
+  class="carousel slide  max-w-screen-sm mx-auto"
+  data-bs-ride="carousel">
+  <div class="carousel-indicators -mb-6 unsplash-thumbs"></div>
+  <div class="carousel-inner unsplash-main-imgs"></div>
+  <button
+    class="carousel-control-prev"
+    type="button"
+    data-bs-target="#carouselUnsplashIndicators"
+    data-bs-slide="prev">
+    <span
+      class="carousel-control-prev-icon"
+      aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button
+    class="carousel-control-next"
+    type="button"
+    data-bs-target="#carouselUnsplashIndicators"
+    data-bs-slide="next">
+    <span
+      class="carousel-control-next-icon"
+      aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+</section>
+
+
+<!--CURRENCY-->
+        <section id="wiki-img" class="p-10 max-w-screen-md mx-auto my-10">
           <!-- INPUT -->
-          <form id="user-input-origin-form" class="bg-black flex flex-col p-3">
-            <label class="text-white" for="from-country">From Country:</label>
-            <select id="from-country" name="from-country">
-              <option value="" label="Select a country ... " disabled selected>
-                Select a country ...
+          
+          <form id="user-input-origin-form" class="flex flex-col">
+            <label class="text-white text-md pb-2" id="label-form" for="from-country">Select a country for currency exchange rate</label>
+            <select id="from-country" name="from-country" class="border-b-2 border-white-900 p-2 text-white">
+              <option value="" label="Select a country ... " class="text-white" disabled selected>
+                 ...
               </option>
               <option value="AFN">Afghanistan</option>
               <option value="ALL">Albania</option>
@@ -505,15 +526,15 @@
             </select>
 
             <input
-              type="submit"
-              id="form-submit"
-              class="bg-indigo-500 p-2"
-              value="Submit" />
+          type="submit"
+          id="form-submit"
+          class="bg-red-500 hover:bg-red-700 text-white text-md p-1 mt-3 mx-6 rounded"
+          value="Check conversion" />
+
           </form>
+          <div id="currency" class="my-5 text-lg text-white mx-auto text-center"></div>
         </section>
-        <section class="bg-indigo-400 p-10">
-          <div id="currency"></div>
-        </section>
+       
       </main>
     </div>
 

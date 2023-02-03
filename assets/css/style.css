@@ -1,3 +1,4 @@
+/*
 #wrapper {
   display: flex;
   justify-content: center;
@@ -24,7 +25,48 @@ main {
 #wiki-img {
   background-color: blueviolet;
 }
-
+*/
 .display-none-error {
   display: none;
+}
+
+
+#wiki-tile {
+  font-family:  'Goudy Bookletter 1911', serif;
+}
+
+#wiki-disc {
+font-family:  'Raleway', sans-serif;
+}
+
+#history-list {
+  font-family: 'Reem Kufi Fun', sans-serif;
+  font-size: 14px;
+}
+
+#search-history {
+  font-family: 'Reem Kufi Fun', sans-serif;
+  font-size: 15px;
+}
+
+#label-form  {
+  font-family: 'Reem Kufi Fun', sans-serif;
+}
+
+#form-submit {
+  font-family: 'Reem Kufi Fun', sans-serif;
+}
+
+#going-to-country {
+  background: url('https://www.charbase.com/images/glyph/9662') no-repeat right;
+  background-size: 16px;
+}
+
+
+#from-country {
+  background-color: rgba(255,255,255,0.12);
+}
+
+#currency {
+  font-family: 'Reem Kufi Fun', sans-serif;
 }

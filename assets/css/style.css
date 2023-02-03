@@ -74,3 +74,7 @@ font-family:  'Raleway', sans-serif;
 #history-list li {
   cursor: pointer;
 }
+
+.display-none-custom {
+  display: none;
+}

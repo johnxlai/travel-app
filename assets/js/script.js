@@ -9,6 +9,7 @@ const flagElem = document.getElementById('flag');
 const currencyEl = document.getElementById('currency');
 const errorElem = document.getElementById('modal-error');
 const historyUl = document.getElementById('history-list');
+const wikiImgElem = document.getElementById('wiki-img');
 let vacationDetails = {};
 
 //Grab user input
@@ -26,6 +27,7 @@ function grabUserVisitingInput(e) {
     vacationDetails = { toWhere, toWhereCurrency };
     addToLocalStorage(toWhere);
     clickLocaList();
+    showMe();
 
     currencyEl.innerHTML = ``;
   } else {
@@ -37,8 +39,12 @@ function grabUserVisitingInput(e) {
 function grabUserOriginInput(e) {
   e.preventDefault();
   let homeCurrency = fromCountry.find(':selected').val();
-  console.log(vacationDetails);
-  fetchCurrency(homeCurrency, vacationDetails.toWhereCurrency);
+  console.log(homeCurrency);
+  if (homeCurrency != false) {
+    fetchCurrency(homeCurrency, vacationDetails.toWhereCurrency);
+  } else {
+    errorModalClose();
+  }
 }
 
 ////////// ERROR Handlers ///////////////
@@ -248,6 +254,10 @@ function clickLocaList() {
       // clickLocaList();
     });
   }
+}
+
+function showMe() {
+  wikiImgElem.classList.remove('display-none-custom');
 }
 
 //Event for form submission

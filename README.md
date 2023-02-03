@@ -1,4 +1,4 @@
-# Visit
+# Travel Me App
 # User Story
 * As a traveller, I want to stay informed on relevant information for tourists in specific countries. I want to select a country in the application, and have the choice to see various general information such as the details, national flag, see images and a short bio of the country. Additionally, I can choose the country I am based in, and see the current currency exchange between my country and my destination country.
 

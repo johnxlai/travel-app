@@ -275,6 +275,9 @@ function clickLocaList() {
       fetchFlag(liElem[i].innerText);
       fetchUnsplash(liElem[i].innerText);
       addToLocalStorage(liElem[i].innerText);
+      showMe(box1El);
+      showMe(box2El);
+      showMe(box3El);
       // clickLocaList();
     });
   }

@@ -30,13 +30,12 @@ main {
   display: none;
 }
 
-
-#wiki-tile {
-  font-family:  'Goudy Bookletter 1911', serif;
+.goudy {
+  font-family: 'Goudy Bookletter 1911', serif;
 }
 
 #wiki-disc {
-font-family:  'Raleway', sans-serif;
+  font-family: 'Raleway', sans-serif;
 }
 
 #history-list {
@@ -49,7 +48,7 @@ font-family:  'Raleway', sans-serif;
   font-size: 15px;
 }
 
-#label-form  {
+#label-form {
   font-family: 'Reem Kufi Fun', sans-serif;
 }
 
@@ -62,9 +61,8 @@ font-family:  'Raleway', sans-serif;
   background-size: 16px;
 }
 
-
 #from-country {
-  background-color: rgba(255,255,255,0.12);
+  background-color: rgba(255, 255, 255, 0.12);
 }
 
 #currency {
@@ -79,19 +77,14 @@ font-family:  'Raleway', sans-serif;
   display: none;
 }
 
-
-
 #home-title {
   font-family: 'Goudy Bookletter 1911', serif;
   text-align: left;
-
 }
-
 
 #home-title-2 {
   font-family: 'Goudy Bookletter 1911', serif;
-text-align: left;
-  
+  text-align: left;
 }
 #home-subtitle {
   font-family: 'Reem Kufi Fun', sans-serif;
@@ -131,14 +124,9 @@ text-align: left;
     font-size: 14px;
   }
   #wrapper {
-    margin-top:0;
+    margin-top: 0;
   }
   #wiki-disc {
     font-size: 12px;
   }
-  #section-box {
-    padding-right: 10px;
-    padding-left: 10px;
-  }
 }
-

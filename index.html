@@ -30,294 +30,29 @@
     <title>Travel app</title>
   </head>
   <body class="bg-slate-900">
-    <div id="wrapper" class="flex">
-
+    <div id="wrapper" class="flex flex-col md:flex-row md:flex-wrap">
       <!--Sidebar-->
-      <aside class="w-60 fixed left-0 top-0 h-screen bg-yellow-50">
-
+      <aside
+        class="w-full md:w-60 lg:w-80 md:fixed md:left-0 md:top-0 md:h-screen bg-yellow-50">
         <img src="./assets/image/vector.png" alt="logo" class="w-20 m-2" />
-        <div class = "p-10">
-        
-        <!-- INPUT -->
-        <form id="user-input-vacation-form" class="flex flex-col">
-          <label class="text-red-500 text-md pb-2" id="label-form" for="going-to-country">Select a country</label>
-          <select id="going-to-country" name="going-to-country" class="border-b-2 border-slate-900  ">
-            <option value="" label="Select a country ..." disabled selected>
-            </option>
-            <option value="AFN">Afghanistan</option>
-            <option value="ALL">Albania</option>
-            <option value="DZD">Algeria</option>
-            <option value="EUR">Andorra</option>
-            <option value="AOA">Angola</option>
-            <option value="XCD">Antigua and Barbuda</option>
-            <option value="ARS">Argentina</option>
-            <option value="AMD">Armenia</option>
-            <option value="AUD">Australia</option>
-            <option value="EUR">Austria</option>
-            <option value="AZN">Azerbaijan</option>
-            <option value="BSD">Bahamas</option>
-            <option value="BHD">Bahrain</option>
-            <option value="BDT">Bangladesh</option>
-            <option value="BBD">Barbados</option>
-            <option value="BYR">Belarus</option>
-            <option value="EUR">Belgium</option>
-            <option value="BZD">Belize</option>
-            <option value="XOF">Benin</option>
-            <option value="BMD">Bermuda</option>
-            <option value="BTN">Bhutan</option>
-            <option value="BOB">Bolivia</option>
-            <option value="BAM">Bosnia and Herzegovina</option>
-            <option value="BWP">Botswana</option>
-            <option value="BRL">Brazil</option>
-            <option value="BND">Brunei</option>
-            <option value="BGN">Bulgaria</option>
-            <option value="XOF">Burkina Faso</option>
-            <option value="BIF">Burundi</option>
-            <option value="KHR">Cambodia</option>
-            <option value="XAF">Cameroon</option>
-            <option value="CAD">Canada</option>
-            <option value="CVE">Cape Verde</option>
-            <option value="XAF">Central African Republic</option>
-            <option value="XAF">Chad</option>
-            <option value="CLP">Chile</option>
-            <option value="CNY">China</option>
-            <option value="COP">Colombia</option>
-            <option value="KMF">Comoros</option>
-            <option value="CDF">Congo</option>
-            <option value="CDF">Congo, the Democratic Republic of the</option>
-            <option value="CRC">Costa Rica</option>
-            <option value="XOF">Côte d'Ivoire</option>
-            <option value="HRK">Croatia</option>
-            <option value="CUP">Cuba</option>
-            <option value="EUR">Cyprus</option>
-            <option value="CZK">Czech Republic</option>
-            <option value="DKK">Denmark</option>
-            <option value="DJF">Djibouti</option>
-            <option value="XCD">Dominica</option>
-            <option value="DOP">Dominican Republic</option>
-            <option value="USD">Ecuador</option>
-            <option value="EGP">Egypt</option>
-            <option value="USD">El Salvador</option>
-            <option value="XAF">Equatorial Guinea</option>
-            <option value="ERN">Eritrea</option>
-            <option value="EUR">Estonia</option>
-            <option value="ETB">Ethiopia</option>
-            <option value="FJD">Fiji</option>
-            <option value="EUR">Finland</option>
-            <option value="EUR">France</option>
-            <option value="XAF">Gabon</option>
-            <option value="GMD">Gambia</option>
-            <option value="GEL">Georgia</option>
-            <option value="EUR">Germany</option>
-            <option value="GHS">Ghana</option>
-            <option value="GIP">Gibraltar</option>
-            <option value="EUR">Greece</option>
-            <option value="DKK">Greenland</option>
-            <option value="XCD">Grenada</option>
-            <option value="USD">Guam</option>
-            <option value="GTQ">Guatemala</option>
-            <option value="GNF">Guinea</option>
-            <option value="GWP">Guinea-Bissau</option>
-            <option value="GYD">Guyana</option>
-            <option value="HTG">Haiti</option>
-            <option value="EUR">Holy See (Vatican City State)</option>
-            <option value="HNL">Honduras</option>
-            <option value="HKD">Hong Kong</option>
-            <option value="HUF">Hungary</option>
-            <option value="ISK">Iceland</option>
-            <option value="INR">India</option>
-            <option value="IDR">Indonesia</option>
-            <option value="IRR">Iran</option>
-            <option value="IQD">Iraq</option>
-            <option value="EUR">Ireland</option>
-            <option value="ILS">Israel</option>
-            <option value="EUR">Italy</option>
-            <option value="JMD">Jamaica</option>
-            <option value="JPY">Japan</option>
-            <option value="JOD">Jordan</option>
-            <option value="KZT">Kazakhstan</option>
-            <option value="KES">Kenya</option>
-            <option value="AUD">Kiribati</option>
-            <option value="KRW">South Korea</option>
-            <option value="KWD">Kuwait</option>
-            <option value="KGS">Kyrgyzstan</option>
-            <option value="LAK">Laos</option>
-            <option value="LVL">Latvia</option>
-            <option value="LBP">Lebanon</option>
-            <option value="LSL">Lesotho</option>
-            <option value="LRD">Liberia</option>
-            <option value="LYD">Libya</option>
-            <option value="CHF">Liechtenstein</option>
-            <option value="LTL">Lithuania</option>
-            <option value="EUR">Luxembourg</option>
-            <option value="EUR">Macedonia</option>
-            <option value="MGF">Madagascar</option>
-            <option value="MWK">Malawi</option>
-            <option value="MYR">Malaysia</option>
-            <option value="MVR">Maldives</option>
-            <option value="XOF">Mali</option>
-            <option value="EUR">Malta</option>
-            <option value="USD">Marshall Islands</option>
-            <option value="MRO">Mauritania</option>
-            <option value="MUR">Mauritius</option>
-            <option value="MXN">Mexico</option>
-            <option value="USD">Micronesia, Federated States of</option>
-            <option value="MDL">Moldova, Republic of</option>
-            <option value="EUR">Monaco</option>
-            <option value="MNT">Mongolia</option>
-            <option value="EUR">Montenegro</option>
-            <option value="XCD">Montserrat</option>
-            <option value="MAD">Morocco</option>
-            <option value="MZN">Mozambique</option>
-            <option value="MMK">Myanmar</option>
-            <option value="NAD">Namibia</option>
-            <option value="AUD">Nauru</option>
-            <option value="NPR">Nepal</option>
-            <option value="EUR">Netherlands</option>
-            <option value="NZD">New Zealand</option>
-            <option value="NIO">Nicaragua</option>
-            <option value="XOF">Niger</option>
-            <option value="XAF">Nigeria</option>
-            <option value="NOK">Norway</option>
-            <option value="OMR">Oman</option>
-            <option value="PKR">Pakistan</option>
-            <option value="USD">Palau</option>
-            <option value="PSP">Palestine</option>
-            <option value="PAB">Panama</option>
-            <option value="PGK">Papua New Guinea</option>
-            <option value="PYG">Paraguay</option>
-            <option value="PEN">Peru</option>
-            <option value="PHP">Philippines</option>
-            <option value="PLN">Poland</option>
-            <option value="EUR">Portugal</option>
-            <option value="QAR">Qatar</option>
-            <option value="RON">Romania</option>
-            <option value="RUB">Russia</option>
-            <option value="RWF">Rwanda</option>
-            <option value="XCD">Saint Kitts and Nevis</option>
-            <option value="XCD">Saint Lucia</option>
-            <option value="XCD">Saint Vincent and the Grenadines</option>
-            <option value="WST">Samoa</option>
-            <option value="EUR">San Marino</option>
-            <option value="STD">Sao Tome and Principe</option>
-            <option value="SAR">Saudi Arabia</option>
-            <option value="XOF">Senegal</option>
-            <option value="RSD">Serbia</option>
-            <option value="SCR">Seychelles</option>
-            <option value="SLL">Sierra Leone</option>
-            <option value="SGD">Singapore</option>
-            <option value="EUR">Slovakia</option>
-            <option value="EUR">Slovenia</option>
-            <option value="SBD">Solomon Islands</option>
-            <option value="SOS">Somalia</option>
-            <option value="ZAR">South Africa</option>
-            <option value="EUR">Spain</option>
-            <option value="USD">Sri Lanka</option>
-            <option value="SDG">Sudan</option>
-            <option value="SRD">Suriname</option>
-            <option value="SEK">Sweden</option>
-            <option value="CHF">Switzerland</option>
-            <option value="SYP">Syria</option>
-            <option value="TWD">Taiwan</option>
-            <option value="TJS">Tajikistan</option>
-            <option value="TZS">Tanzania</option>
-            <option value="THB">Thailand</option>
-            <option value="USD">Timor-Leste</option>
-            <option value="XOF">Togo</option>
-            <option value="NZD">Tokelau</option>
-            <option value="TOP">Tonga</option>
-            <option value="TTD">Trinidad and Tobago</option>
-            <option value="TND">Tunisia</option>
-            <option value="TRY">Turkey</option>
-            <option value="TMT">Turkmenistan</option>
-            <option value="AUD">Tuvalu</option>
-            <option value="UGX">Uganda</option>
-            <option value="UAH">Ukraine</option>
-            <option value="AED">United Arab Emirates</option>
-            <option value="GBP">United Kingdom</option>
-            <option value="USD">United States</option>
-            <option value="UYU">Uruguay</option>
-            <option value="UZS">Uzbekistan</option>
-            <option value="VUV">Vanuatu</option>
-            <option value="VEF">Venezuela</option>
-            <option value="VND">Vietnam</option>
-            <option value="GBP">Virgin Islands, British</option>
-            <option value="USD">Virgin Islands, U.S.</option>
-            <option value="MAD">Western Sahara</option>
-            <option value="YER">Yemen</option>
-            <option value="ZMW">Zambia</option>
-            <option value="ZWD">Zimbabwe</option>
-          </select>
-          <input
-          type="submit"
-          id="form-submit"
-          class="bg-red-500 hover:bg-red-700 text-white text-sm p-1 mt-2 mx-4 rounded"
-          value="Submit" />
-        </form>
-        <!--HISTORU -->
-        <p id="search-history" class ="pt-10 text-red-500 pb-2">Search History</p>
-        <ul id="history-list">
-          <li><a href=""></a></li>
-        </ul>
-      </div>
-      </aside>
-<!--title and flag-->
-      <main class="flex-1 ml-60">
-        <header class="p-10">
-          <div id="wiki-tile" class="text-center text-5xl text-yellow-50"></div>
-          <img id="flag" class="max-w-[350px] p-10 mx-auto" src="" />
-        </header>
-
-        <article class="min-h-min px-10">
-          
-<!--bio-->
-          <section id="wiki-disc" class="max-w-screen-md mx-auto text-yellow-50"></section>
-          
-        </article>
-
-
-        <!--CAROUSEL-->
-<section id="carousel"class="my-28">
-
-  <div
-  id="carouselUnsplashIndicators"
-  class="carousel slide  max-w-screen-sm mx-auto"
-  data-bs-ride="carousel">
-  <div class="carousel-indicators -mb-6 unsplash-thumbs"></div>
-  <div class="carousel-inner unsplash-main-imgs"></div>
-  <button
-    class="carousel-control-prev"
-    type="button"
-    data-bs-target="#carouselUnsplashIndicators"
-    data-bs-slide="prev">
-    <span
-      class="carousel-control-prev-icon"
-      aria-hidden="true"></span>
-    <span class="visually-hidden">Previous</span>
-  </button>
-  <button
-    class="carousel-control-next"
-    type="button"
-    data-bs-target="#carouselUnsplashIndicators"
-    data-bs-slide="next">
-    <span
-      class="carousel-control-next-icon"
-      aria-hidden="true"></span>
-    <span class="visually-hidden">Next</span>
-  </button>
-</div>
-</section>
-
-
-<!--CURRENCY-->
-        <section id="wiki-img" class="p-10 max-w-screen-md mx-auto my-10 display-none-custom">
+        <div class="p-10">
           <!-- INPUT -->
-          
-          <form id="user-input-origin-form" class="flex flex-col">
-            <label class="text-white text-md pb-2" id="label-form" for="from-country">Select a country for currency exchange rate</label>
-            <select id="from-country" name="from-country" class="border-b-2 border-white-900 p-2 text-white">
-              <option value="" label="Select a country ..." class="text-white" disabled selected>
-              </option>
+          <form id="user-input-vacation-form" class="flex flex-col">
+            <label
+              class="text-red-500 text-md pb-2"
+              id="label-form"
+              for="going-to-country"
+              >Select a country</label
+            >
+            <select
+              id="going-to-country"
+              name="going-to-country"
+              class="border-b-2 border-slate-900">
+              <option
+                value=""
+                label="Select a country ..."
+                disabled
+                selected></option>
               <option value="AFN">Afghanistan</option>
               <option value="ALL">Albania</option>
               <option value="DZD">Algeria</option>
@@ -466,7 +201,7 @@
               <option value="EUR">Portugal</option>
               <option value="QAR">Qatar</option>
               <option value="RON">Romania</option>
-              <option value="RUB">Russian Federation</option>
+              <option value="RUB">Russia</option>
               <option value="RWF">Rwanda</option>
               <option value="XCD">Saint Kitts and Nevis</option>
               <option value="XCD">Saint Lucia</option>
@@ -522,17 +257,329 @@
               <option value="ZMW">Zambia</option>
               <option value="ZWD">Zimbabwe</option>
             </select>
-
             <input
-          type="submit"
-          id="form-submit"
-          class="bg-red-500 hover:bg-red-700 text-white text-md p-1 mt-3 mx-6 rounded"
-          value="Check conversion" />
-
+              type="submit"
+              id="form-submit"
+              class="bg-red-500 hover:bg-red-700 text-white text-sm p-1 mt-2 mx-4 rounded"
+              value="Submit" />
           </form>
-          <div id="currency" class="my-5 text-lg text-white mx-auto text-center"></div>
-        </section>
-       
+          <!--HISTORU -->
+          <p id="search-history" class="pt-10 text-red-500 pb-2">
+            Search History
+          </p>
+          <ul id="history-list" class="flex flex-wrap md:flex-col"></ul>
+        </div>
+      </aside>
+      <!--title and flag-->
+      <main class="flex-1 md:ml-60 lg:ml-80">
+        <header class="p-10">
+          <div
+            id="wiki-tile"
+            class="text-center text-5xl text-yellow-50 mx-auto"></div>
+          <img id="flag" class="max-w-[300px] w-100 my-10 mx-auto" src="" />
+        </header>
+
+        <article class="min-h-min px-10 mb-[160px]">
+          <!--bio-->
+          <section
+            class="max-w-screen-md mx-auto text-yellow-50 d-flex flex-col xl:flex-row xl:flex-wrap">
+            <div class="mb-3 xl:pl-6 xl:w-1/12 xl:order-2">
+              <h3 class="text-2xl">Bio</h3>
+            </div>
+            <div class="w-full xl:border-r xl:border-white xl:pr-8 xl:w-11/12">
+              <div id="wiki-disc" class="bg-slate-500 p-8"></div>
+            </div>
+          </section>
+        </article>
+
+        <!--CAROUSEL-->
+        <!--bio-->
+        <article class="min-h-min px-10 mb-[160px]">
+          <section
+            class="max-w-screen-md mx-auto text-yellow-50 d-flex flex-col xl:flex-row xl:flex-wrap">
+            <div class="mb-3 xl:pl-6 xl:w-1/12 xl:order-2">
+              <h3 class="text-2xl">Images</h3>
+            </div>
+            <div class="w-full xl:border-r xl:border-white xl:pr-8 xl:w-11/12">
+              <div id="carousel" class="">
+                <div
+                  id="carouselUnsplashIndicators"
+                  class="carousel slide mx-auto"
+                  data-bs-ride="carousel">
+                  <div class="carousel-indicators -mb-6 unsplash-thumbs"></div>
+                  <div class="carousel-inner unsplash-main-imgs"></div>
+                  <button
+                    class="carousel-control-prev"
+                    type="button"
+                    data-bs-target="#carouselUnsplashIndicators"
+                    data-bs-slide="prev">
+                    <span
+                      class="carousel-control-prev-icon"
+                      aria-hidden="true"></span>
+                    <span class="visually-hidden">Previous</span>
+                  </button>
+                  <button
+                    class="carousel-control-next"
+                    type="button"
+                    data-bs-target="#carouselUnsplashIndicators"
+                    data-bs-slide="next">
+                    <span
+                      class="carousel-control-next-icon"
+                      aria-hidden="true"></span>
+                    <span class="visually-hidden">Next</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </section>
+        </article>
+
+        <!--CURRENCY-->
+        <article class="min-h-min px-10 mb-[160px]">
+          <section
+            id=""
+            class="max-w-screen-md mx-auto my-10 text-yellow-50 d-flex flex-col xl:flex-row xl:flex-wrap display-none-custom">
+            <div class="mb-3 xl:pl-6 xl:w-1/12 xl:order-2">
+              <h3 class="text-2xl">Currency Exchange</h3>
+            </div>
+            <!-- INPUT -->
+            <div class="w-full xl:border-r xl:border-white xl:pr-8 xl:w-11/12">
+              <form id="user-input-origin-form" class="flex flex-col">
+                <label
+                  class="text-white text-md pb-2"
+                  id="label-form"
+                  for="from-country"
+                  >Select a country for currency exchange rate</label
+                >
+                <select
+                  id="from-country"
+                  name="from-country"
+                  class="border-b-2 border-white-900 p-2 text-white">
+                  <option
+                    value=""
+                    label="Select a country ..."
+                    class="text-white"
+                    disabled
+                    selected></option>
+                  <option value="AFN">Afghanistan</option>
+                  <option value="ALL">Albania</option>
+                  <option value="DZD">Algeria</option>
+                  <option value="EUR">Andorra</option>
+                  <option value="AOA">Angola</option>
+                  <option value="XCD">Antigua and Barbuda</option>
+                  <option value="ARS">Argentina</option>
+                  <option value="AMD">Armenia</option>
+                  <option value="AUD">Australia</option>
+                  <option value="EUR">Austria</option>
+                  <option value="AZN">Azerbaijan</option>
+                  <option value="BSD">Bahamas</option>
+                  <option value="BHD">Bahrain</option>
+                  <option value="BDT">Bangladesh</option>
+                  <option value="BBD">Barbados</option>
+                  <option value="BYR">Belarus</option>
+                  <option value="EUR">Belgium</option>
+                  <option value="BZD">Belize</option>
+                  <option value="XOF">Benin</option>
+                  <option value="BMD">Bermuda</option>
+                  <option value="BTN">Bhutan</option>
+                  <option value="BOB">Bolivia</option>
+                  <option value="BAM">Bosnia and Herzegovina</option>
+                  <option value="BWP">Botswana</option>
+                  <option value="BRL">Brazil</option>
+                  <option value="BND">Brunei</option>
+                  <option value="BGN">Bulgaria</option>
+                  <option value="XOF">Burkina Faso</option>
+                  <option value="BIF">Burundi</option>
+                  <option value="KHR">Cambodia</option>
+                  <option value="XAF">Cameroon</option>
+                  <option value="CAD">Canada</option>
+                  <option value="CVE">Cape Verde</option>
+                  <option value="XAF">Central African Republic</option>
+                  <option value="XAF">Chad</option>
+                  <option value="CLP">Chile</option>
+                  <option value="CNY">China</option>
+                  <option value="COP">Colombia</option>
+                  <option value="KMF">Comoros</option>
+                  <option value="CDF">Congo</option>
+                  <option value="CDF">
+                    Congo, the Democratic Republic of the
+                  </option>
+                  <option value="CRC">Costa Rica</option>
+                  <option value="XOF">Côte d'Ivoire</option>
+                  <option value="HRK">Croatia</option>
+                  <option value="CUP">Cuba</option>
+                  <option value="EUR">Cyprus</option>
+                  <option value="CZK">Czech Republic</option>
+                  <option value="DKK">Denmark</option>
+                  <option value="DJF">Djibouti</option>
+                  <option value="XCD">Dominica</option>
+                  <option value="DOP">Dominican Republic</option>
+                  <option value="USD">Ecuador</option>
+                  <option value="EGP">Egypt</option>
+                  <option value="USD">El Salvador</option>
+                  <option value="XAF">Equatorial Guinea</option>
+                  <option value="ERN">Eritrea</option>
+                  <option value="EUR">Estonia</option>
+                  <option value="ETB">Ethiopia</option>
+                  <option value="FJD">Fiji</option>
+                  <option value="EUR">Finland</option>
+                  <option value="EUR">France</option>
+                  <option value="XAF">Gabon</option>
+                  <option value="GMD">Gambia</option>
+                  <option value="GEL">Georgia</option>
+                  <option value="EUR">Germany</option>
+                  <option value="GHS">Ghana</option>
+                  <option value="GIP">Gibraltar</option>
+                  <option value="EUR">Greece</option>
+                  <option value="DKK">Greenland</option>
+                  <option value="XCD">Grenada</option>
+                  <option value="USD">Guam</option>
+                  <option value="GTQ">Guatemala</option>
+                  <option value="GNF">Guinea</option>
+                  <option value="GWP">Guinea-Bissau</option>
+                  <option value="GYD">Guyana</option>
+                  <option value="HTG">Haiti</option>
+                  <option value="EUR">Holy See (Vatican City State)</option>
+                  <option value="HNL">Honduras</option>
+                  <option value="HKD">Hong Kong</option>
+                  <option value="HUF">Hungary</option>
+                  <option value="ISK">Iceland</option>
+                  <option value="INR">India</option>
+                  <option value="IDR">Indonesia</option>
+                  <option value="IRR">Iran</option>
+                  <option value="IQD">Iraq</option>
+                  <option value="EUR">Ireland</option>
+                  <option value="ILS">Israel</option>
+                  <option value="EUR">Italy</option>
+                  <option value="JMD">Jamaica</option>
+                  <option value="JPY">Japan</option>
+                  <option value="JOD">Jordan</option>
+                  <option value="KZT">Kazakhstan</option>
+                  <option value="KES">Kenya</option>
+                  <option value="AUD">Kiribati</option>
+                  <option value="KRW">South Korea</option>
+                  <option value="KWD">Kuwait</option>
+                  <option value="KGS">Kyrgyzstan</option>
+                  <option value="LAK">Laos</option>
+                  <option value="LVL">Latvia</option>
+                  <option value="LBP">Lebanon</option>
+                  <option value="LSL">Lesotho</option>
+                  <option value="LRD">Liberia</option>
+                  <option value="LYD">Libya</option>
+                  <option value="CHF">Liechtenstein</option>
+                  <option value="LTL">Lithuania</option>
+                  <option value="EUR">Luxembourg</option>
+                  <option value="EUR">Macedonia</option>
+                  <option value="MGF">Madagascar</option>
+                  <option value="MWK">Malawi</option>
+                  <option value="MYR">Malaysia</option>
+                  <option value="MVR">Maldives</option>
+                  <option value="XOF">Mali</option>
+                  <option value="EUR">Malta</option>
+                  <option value="USD">Marshall Islands</option>
+                  <option value="MRO">Mauritania</option>
+                  <option value="MUR">Mauritius</option>
+                  <option value="MXN">Mexico</option>
+                  <option value="USD">Micronesia, Federated States of</option>
+                  <option value="MDL">Moldova, Republic of</option>
+                  <option value="EUR">Monaco</option>
+                  <option value="MNT">Mongolia</option>
+                  <option value="EUR">Montenegro</option>
+                  <option value="XCD">Montserrat</option>
+                  <option value="MAD">Morocco</option>
+                  <option value="MZN">Mozambique</option>
+                  <option value="MMK">Myanmar</option>
+                  <option value="NAD">Namibia</option>
+                  <option value="AUD">Nauru</option>
+                  <option value="NPR">Nepal</option>
+                  <option value="EUR">Netherlands</option>
+                  <option value="NZD">New Zealand</option>
+                  <option value="NIO">Nicaragua</option>
+                  <option value="XOF">Niger</option>
+                  <option value="XAF">Nigeria</option>
+                  <option value="NOK">Norway</option>
+                  <option value="OMR">Oman</option>
+                  <option value="PKR">Pakistan</option>
+                  <option value="USD">Palau</option>
+                  <option value="PSP">Palestine</option>
+                  <option value="PAB">Panama</option>
+                  <option value="PGK">Papua New Guinea</option>
+                  <option value="PYG">Paraguay</option>
+                  <option value="PEN">Peru</option>
+                  <option value="PHP">Philippines</option>
+                  <option value="PLN">Poland</option>
+                  <option value="EUR">Portugal</option>
+                  <option value="QAR">Qatar</option>
+                  <option value="RON">Romania</option>
+                  <option value="RUB">Russian Federation</option>
+                  <option value="RWF">Rwanda</option>
+                  <option value="XCD">Saint Kitts and Nevis</option>
+                  <option value="XCD">Saint Lucia</option>
+                  <option value="XCD">Saint Vincent and the Grenadines</option>
+                  <option value="WST">Samoa</option>
+                  <option value="EUR">San Marino</option>
+                  <option value="STD">Sao Tome and Principe</option>
+                  <option value="SAR">Saudi Arabia</option>
+                  <option value="XOF">Senegal</option>
+                  <option value="RSD">Serbia</option>
+                  <option value="SCR">Seychelles</option>
+                  <option value="SLL">Sierra Leone</option>
+                  <option value="SGD">Singapore</option>
+                  <option value="EUR">Slovakia</option>
+                  <option value="EUR">Slovenia</option>
+                  <option value="SBD">Solomon Islands</option>
+                  <option value="SOS">Somalia</option>
+                  <option value="ZAR">South Africa</option>
+                  <option value="EUR">Spain</option>
+                  <option value="USD">Sri Lanka</option>
+                  <option value="SDG">Sudan</option>
+                  <option value="SRD">Suriname</option>
+                  <option value="SEK">Sweden</option>
+                  <option value="CHF">Switzerland</option>
+                  <option value="SYP">Syria</option>
+                  <option value="TWD">Taiwan</option>
+                  <option value="TJS">Tajikistan</option>
+                  <option value="TZS">Tanzania</option>
+                  <option value="THB">Thailand</option>
+                  <option value="USD">Timor-Leste</option>
+                  <option value="XOF">Togo</option>
+                  <option value="NZD">Tokelau</option>
+                  <option value="TOP">Tonga</option>
+                  <option value="TTD">Trinidad and Tobago</option>
+                  <option value="TND">Tunisia</option>
+                  <option value="TRY">Turkey</option>
+                  <option value="TMT">Turkmenistan</option>
+                  <option value="AUD">Tuvalu</option>
+                  <option value="UGX">Uganda</option>
+                  <option value="UAH">Ukraine</option>
+                  <option value="AED">United Arab Emirates</option>
+                  <option value="GBP">United Kingdom</option>
+                  <option value="USD">United States</option>
+                  <option value="UYU">Uruguay</option>
+                  <option value="UZS">Uzbekistan</option>
+                  <option value="VUV">Vanuatu</option>
+                  <option value="VEF">Venezuela</option>
+                  <option value="VND">Vietnam</option>
+                  <option value="GBP">Virgin Islands, British</option>
+                  <option value="USD">Virgin Islands, U.S.</option>
+                  <option value="MAD">Western Sahara</option>
+                  <option value="YER">Yemen</option>
+                  <option value="ZMW">Zambia</option>
+                  <option value="ZWD">Zimbabwe</option>
+                </select>
+
+                <input
+                  type="submit"
+                  id="form-submit"
+                  class="bg-red-500 hover:bg-red-700 text-white text-md p-1 mt-3 mx-6 rounded"
+                  value="Check conversion" />
+              </form>
+              <div
+                id="currency"
+                class="my-5 text-lg text-white mx-auto text-center"></div>
+            </div>
+          </section>
+        </article>
       </main>
     </div>
 

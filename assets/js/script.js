@@ -213,7 +213,10 @@ function addToLocalStorage(away) {
   //If it is already in the array dont add it
   if (!storedHistory.some(checkCountryExist)) {
     //add to array
-    storedHistory.push(country);
+    storedHistory.unshift(country);
+    if (storedHistory.length > 10) {
+      storedHistory.pop();
+    }
   }
 
   //Update localStorage with the new stored History

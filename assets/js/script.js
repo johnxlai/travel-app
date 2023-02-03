@@ -13,6 +13,10 @@ const wikiImgElem = document.getElementById('wiki-img');
 const startBtn = document.querySelector('#start-button');
 const startContent = document.querySelector('#start-section');
 const appContent = document.querySelector('#wrapper');
+const box1El = document.getElementById('section-box-1');
+const box2El = document.getElementById('section-box-2');
+const box3El = document.getElementById('section-box-3');
+
 let vacationDetails = {};
 
 function startApp() {
@@ -49,7 +53,9 @@ function grabUserVisitingInput(e) {
     vacationDetails = { toWhere, toWhereCurrency };
     addToLocalStorage(toWhere);
     clickLocaList();
-    showMe();
+    showMe(box1El);
+    showMe(box2El);
+    showMe(box3El);
 
     currencyEl.innerHTML = ``;
   } else {
@@ -269,13 +275,18 @@ function clickLocaList() {
       fetchFlag(liElem[i].innerText);
       fetchUnsplash(liElem[i].innerText);
       addToLocalStorage(liElem[i].innerText);
+      showMe(box1El);
+      showMe(box2El);
+      showMe(box3El);
       // clickLocaList();
     });
   }
 }
 
-function showMe() {
-  wikiImgElem.classList.remove('display-none-custom');
+function showMe(nameElem) {
+  if(nameElem.classList.contains('display-none-custom')){
+    nameElem.classList.remove('display-none-custom');
+  }
 }
 
 //Event for form submission

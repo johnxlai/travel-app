@@ -70,3 +70,7 @@ font-family:  'Raleway', sans-serif;
 #currency {
   font-family: 'Reem Kufi Fun', sans-serif;
 }
+
+#history-list li {
+  cursor: pointer;
+}

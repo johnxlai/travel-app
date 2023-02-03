@@ -18,7 +18,7 @@ function grabUserVisitingInput(e) {
   let toWhereCurrency = goingToCountry.find(':selected').val();
 
   //Fetch from API
-  if (toWhere != 'Select a country ...') {
+  if (toWhere != false) {
     wikiTitleEl.innerHTML = `<h2>${toWhere}</h2>`;
     fetchDescription(toWhere);
     fetchFlag(toWhere);
@@ -143,7 +143,7 @@ function displayImages(images) {
   //empty previous loaded images
   unsplashSection.empty();
   unsplashThumbs.empty();
-  console.log(images);
+  // console.log(images);
   $.each(images.results, function (index, value) {
     unsplashSection.append(
       `<div class="carousel-item overflow-hidden">
@@ -223,7 +223,7 @@ function displayLocalHistory() {
   let searchHistory = JSON.parse(localStorage.getItem('searchHistory'));
 
   searchHistory.forEach(function (search) {
-    console.log(search);
+    // console.log(search);
     let li = `
     <li>${search.away}</li>
     `;
@@ -236,10 +236,11 @@ function displayLocalHistory() {
 // click to local links
 function clickLocaList() {
   let liElem = document.querySelectorAll('#history-list li');
-  console.log(liElem);
+  // console.log(liElem);
 
   for (let i = 0; i < liElem.length; i++) {
     liElem[i].addEventListener('click', () => {
+      wikiTitleEl.innerHTML = `<h2>${liElem[i].innerText}</h2>`;
       fetchDescription(liElem[i].innerText);
       fetchFlag(liElem[i].innerText);
       fetchUnsplash(liElem[i].innerText);

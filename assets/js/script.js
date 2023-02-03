@@ -147,12 +147,11 @@ function displayImages(images) {
   $.each(images.results, function (index, value) {
     unsplashSection.append(
       `<div class="carousel-item overflow-hidden">
-        <img src="${value.urls.small}" class="d-block object-cover w-100 max-h-[300px]" alt="${value.alt_description}" />
           <div class="carousel-caption d-none d-md-block">
-            <h5>Photo by ${value.user.name} on <a href="https://unsplash.com" target="_blank">Unsplash</a></h5>
-            <p>${value.description}</p>
-            <a href="${value.links.download}&force=true" target="_blank"  download="">Download</a>
+            <h5>Photo by ${value.user.name} on <a class="underline" href="https://unsplash.com" target="_blank">Unsplash</a> | <a href="${value.links.download}&force=true" target="_blank"  download="">Download Image</a></h5>
           </div>
+        <img src="${value.urls.small}" class="d-block object-cover w-100 max-h-[300px]" alt="${value.alt_description}" />
+
       </div>`
     );
 

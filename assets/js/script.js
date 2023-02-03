@@ -10,7 +10,29 @@ const currencyEl = document.getElementById('currency');
 const errorElem = document.getElementById('modal-error');
 const historyUl = document.getElementById('history-list');
 const wikiImgElem = document.getElementById('wiki-img');
+const startBtn = document.querySelector('#start-button');
+const startContent = document.querySelector('#start-section');
+const appContent = document.querySelector('#wrapper');
 let vacationDetails = {};
+
+function startApp() {
+  //hides home page content
+  startContent.style.display = 'none';
+  //shows app
+  appContent.style.display = 'block';
+ 
+};
+
+function loadApp() {
+  //hides home page content
+  startContent.style.display = 'block';
+  //shows app
+  appContent.style.display = 'none';
+ 
+};
+
+startBtn.addEventListener('click', startApp);
+window.addEventListener('load', loadApp);
 
 //Grab user input
 function grabUserVisitingInput(e) {

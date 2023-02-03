@@ -9,6 +9,7 @@ const flagElem = document.getElementById('flag');
 const currencyEl = document.getElementById('currency');
 const errorElem = document.getElementById('modal-error');
 const historyUl = document.getElementById('history-list');
+const wikiImgElem = document.getElementById('wiki-img');
 let vacationDetails = {};
 
 //Grab user input
@@ -18,7 +19,7 @@ function grabUserVisitingInput(e) {
   let toWhereCurrency = goingToCountry.find(':selected').val();
 
   //Fetch from API
-  if (toWhere != 'Select a country ...') {
+  if (toWhere != false) {
     wikiTitleEl.innerHTML = `<h2>${toWhere}</h2>`;
     fetchDescription(toWhere);
     fetchFlag(toWhere);
@@ -26,6 +27,7 @@ function grabUserVisitingInput(e) {
     vacationDetails = { toWhere, toWhereCurrency };
     addToLocalStorage(toWhere);
     clickLocaList();
+    showMe();
 
     currencyEl.innerHTML = ``;
   } else {
@@ -37,8 +39,12 @@ function grabUserVisitingInput(e) {
 function grabUserOriginInput(e) {
   e.preventDefault();
   let homeCurrency = fromCountry.find(':selected').val();
-  console.log(vacationDetails);
-  fetchCurrency(homeCurrency, vacationDetails.toWhereCurrency);
+  console.log(homeCurrency);
+  if (homeCurrency != false) {
+    fetchCurrency(homeCurrency, vacationDetails.toWhereCurrency);
+  } else {
+    errorModalClose();
+  }
 }
 
 ////////// ERROR Handlers ///////////////
@@ -143,7 +149,7 @@ function displayImages(images) {
   //empty previous loaded images
   unsplashSection.empty();
   unsplashThumbs.empty();
-  console.log(images);
+  // console.log(images);
   $.each(images.results, function (index, value) {
     unsplashSection.append(
       `<div class="carousel-item overflow-hidden">
@@ -223,7 +229,7 @@ function displayLocalHistory() {
   let searchHistory = JSON.parse(localStorage.getItem('searchHistory'));
 
   searchHistory.forEach(function (search) {
-    console.log(search);
+    // console.log(search);
     let li = `
     <li>${search.away}</li>
     `;
@@ -236,10 +242,11 @@ function displayLocalHistory() {
 // click to local links
 function clickLocaList() {
   let liElem = document.querySelectorAll('#history-list li');
-  console.log(liElem);
+  // console.log(liElem);
 
   for (let i = 0; i < liElem.length; i++) {
     liElem[i].addEventListener('click', () => {
+      wikiTitleEl.innerHTML = `<h2>${liElem[i].innerText}</h2>`;
       fetchDescription(liElem[i].innerText);
       fetchFlag(liElem[i].innerText);
       fetchUnsplash(liElem[i].innerText);
@@ -247,6 +254,10 @@ function clickLocaList() {
       // clickLocaList();
     });
   }
+}
+
+function showMe() {
+  wikiImgElem.classList.remove('display-none-custom');
 }
 
 //Event for form submission

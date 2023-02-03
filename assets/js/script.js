@@ -227,11 +227,10 @@ function displayLocalHistory() {
   let searchHistory = JSON.parse(localStorage.getItem('searchHistory'));
 
   searchHistory.forEach(function (search) {
-    // console.log(search);
     let li = `
-    <li>${search.away}</li>
+    <li class="mr-2 md:mr-0 mb-2">${search.away}</li>
     `;
-    // <li><a href="" class="bg-indigo-500">${search.away} </a><li>
+
     historyUl.innerHTML += li;
   });
 
@@ -240,7 +239,6 @@ function displayLocalHistory() {
 // click to local links
 function clickLocaList() {
   let liElem = document.querySelectorAll('#history-list li');
-  // console.log(liElem);
 
   for (let i = 0; i < liElem.length; i++) {
     liElem[i].addEventListener('click', () => {

@@ -30,9 +30,10 @@
     <title>Travel app</title>
   </head>
   <body class="bg-slate-900">
-    <div id="wrapper" class="flex">
+    <div id="wrapper" class="flex flex-col md:flex-row md:flex-wrap">
       <!--Sidebar-->
-      <aside class="w-60 fixed left-0 top-0 h-screen bg-yellow-50">
+      <aside
+        class="w-full md:w-60 md:fixed md:left-0 md:top-0 md:h-screen bg-yellow-50">
         <img src="./assets/image/vector.png" alt="logo" class="w-20 m-2" />
         <div class="p-10">
           <!-- INPUT -->
@@ -266,13 +267,11 @@
           <p id="search-history" class="pt-10 text-red-500 pb-2">
             Search History
           </p>
-          <ul id="history-list">
-            <li><a href=""></a></li>
-          </ul>
+          <ul id="history-list" class="flex flex-wrap md:flex-col"></ul>
         </div>
       </aside>
       <!--title and flag-->
-      <main class="flex-1 ml-60">
+      <main class="flex-1 md:ml-60">
         <header class="p-10">
           <div id="wiki-tile" class="text-center text-5xl text-yellow-50"></div>
           <img id="flag" class="max-w-[350px] p-10 mx-auto" src="" />

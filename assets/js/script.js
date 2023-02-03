@@ -179,11 +179,7 @@ function displayImages(images) {
 // display exchange rate
 function displayExchange(data) {
   currencyEl.innerHTML = `
-    <div class="flex flex-col">
-      Home $$$ = ${data.base_code}
-      Vacation $$$ = ${data.target_code}
-      Conversion Rate = ${data.conversion_rate}
-    </div>
+    <div class="flex flex-col">1 ${data.base_code} = ${data.conversion_rate} ${data.target_code}</div>
     `;
 }
 
